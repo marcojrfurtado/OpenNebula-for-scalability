@@ -1,5 +1,6 @@
 FILE=dissertacao
 LATEX=pdflatex
+DIRS= text
 
 all:compile clean
 	@echo "OK"
@@ -11,7 +12,6 @@ compile:
 	$(LATEX) $(FILE)
 
 clean:
-	rm -Rf *~ *.aux *.bbl *.bak *.backup *.log *.blg *.toc *.lot *.lof *.dvi *.idx *.ilg *.ind *.siglax *.symbolsx *.gz  *.nav *.out *.snm *.synctex.gz* *.vrb
-
+	rm -f *~ *.aux *.bbl *.bak *.backup *.log *.blg *.toc *.lot *.lof *.dvi *.idx *.ilg *.ind *.siglax *.symbolsx *.gz  *.nav *.out *.snm *.synctex.gz* *.vrb
 cleanup: clean
 	rm -f $(FILE).pdf
