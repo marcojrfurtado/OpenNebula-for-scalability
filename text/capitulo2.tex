@@ -59,4 +59,54 @@ Given a workload $W_{i}$, the cost estimator will estimate $Cost(W_{i},R_{i})$. 
 
 The author identifies two problems in using only query optimizer cost models. The first problem is the difficulty of comparing cost estimates produced by different DMBSes. They may have different cost models. Even if they share the same notion of cost, they normalize costs differently. This problem is addressed partially by the advisor. Although it only considers that the DBMSes have the same notion of cost, it proposes a renormalization step, in order to make $Cost_{DB}(W_{i},P_{i},D_{i})$ from different DBMSes comparable. For our purpose this step is not considered for implementation, since the support of multiple DBMSes is out of scope of this paper.
 
-The second problem is that the query optimizer cost estimates depends on $P_{i}$, while the virtualization design advisor is given a candidate resource allocation $R_{i}$. The mapping of these two parameters is done through a calibration step. This step determines a set of DBMS cost model configuration parameters according to the different possible candidate resource allocations. It is supposed to be performed per DMBS on the physical machine before running the virtualization design advisor. Once the appropriate configuration parameters $P_{i}$ are determined for every possible $R_{i}$, the DBMS cost model is used to generate $Cost_{DB}$
+The second problem is that the query optimizer cost estimates depends on $P_{i}$, while the virtualization design advisor is given a candidate resource allocation $R_{i}$. The mapping of these two parameters is done through a calibration step. This step determines a set of DBMS cost model configuration parameters according to the different possible candidate resource allocations. It is supposed to be performed per DMBS on the physical machine before running the virtualization design advisor. Once the appropriate configuration parameters $P_{i}$ are determined for every possible $R_{i}$, the DBMS cost model is used to generate $Cost_{DB}$.
+
+The calibration step is performed on  \textit{descritive parameters}, which are used to characterize the execution environment. The approach to the \textit{prescritive parameters}, which control the configuration of the DBMS itself, is to leave it for user definition. For instance, the ~\ref{table:descritive}  show some descritive parameters used in PostgreSQL, while ~\ref{table:prescritive}  show the prescritive ones. 
+
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{ | l | p{5cm} |}
+    \hline
+    Parameter & Description  \\ \hline
+    \textbf{random\_page\_cost} & Cost of non-sequential page I/O \\ \hline
+    \textbf{cpu\_tuple\_cost} & CPU cost of processing one tuple \\ \hline
+    \textbf{effective\_page\_size} & size of file system's page size  \\
+    \hline
+    \end{tabular}
+    \caption{Descritive parameters}
+    \label{table:descritive}
+\end{table}
+
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{ | l | p{5cm} |}
+    \hline
+      Parameter & Description  \\ \hline
+    \textbf{shared\_buffers} & shared bufferpool size \\ \hline
+    \textbf{work\_mem} & amount of memory used by each sort and hashing operator. \\
+    \hline
+    \end{tabular}
+    \caption{Prescritive parameters}
+    \label{table:prescritive}
+\end{table}
+
+The calibration follows the basic methodology for each parameter $p_{ij} \in P_{i}$:
+
+\begin{itemize}
+ \item (1) Define a calibration query $Q$ and a calibration database $D$, such that $Cost_{DB}(Q,P_{i},D)$ is independent for all descritive parameters in $P_{i}$, except for $p_{ij}$; \\
+  \item (2) Choose a resource allocation $R_{i}$, instantiate $D$, and run $Q$ under that resource allocation, and measure the execution time $T_{Q}$; \\
+  \item (3) This step refers to the renormalization of the $Cost_{DB}$ provided by the DBMS. As mentioned earlier in this section, we are not going into the details of this step; \\
+  \item (4) Repeat the two preceding steps for a variety of $R_{i}$, associating with each parameter $p_{ij}$ that describes that resource. For instance, query optimizer parameters that describe CPU, I/O and memory are independent of each other and can be calibrated independently; \\
+  \item (5) Perform regression analysis on the set of $(R_{i},p_{ik})$ value pairs to determine a calibration function $Cal_{ij}$ that maps resource allocations to $p_{ik}$ values. \\
+\end{itemize}
+
+During the described methodology, calibration queries should be carefully chosen. They need to be dependent only on the parameter that is being calibrated. If it is not possible to isolate one parameter, a system of $k$ equations is solved to determine the values for the $k$ parameters.
+
+
+\section{Online refinement}
+
+The initial allocation is based on the calibrated query optimizer cost model, as described earlier. This enables the advisor to make recommendations based on an informed cost model. However, this model may have inaccuracies that lead to sub-optimal recommendations. The  \textit{online refinement} is based on the observation the actual times of different workloads in the different virtual machines. It uses these observations to refine resource allocation recommendations. Then the advisor is rerun with the new cost models, so  we can obtain an improved resource allocation for different workloads. These optimizations are performed until the allocations stabilize. It's important to notice that the goal of the \textit{online refinement} is not deal with dynamic changes in the workload, which are dealt by another module, but to correct cost models. Thus, it's assumed that the workload is not going to change during this process. 
+
+
