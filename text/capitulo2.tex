@@ -53,7 +53,7 @@ Since the advisor has a considerable number of sub-processes, it makes sense to 
 \label{fig:architecture}
 \end{figure} 
 
-\subsection{Cost estimator}
+\subsection{Cost estimation and initial allocation}
 
 Given a workload $W_{i}$, the cost estimator will estimate $Cost(W_{i},R_{i})$. The strategy used to implement this module is to leverage the cost models built into database systems for query optimization. The query optimizer cost model can be described as $Cost_{DB}(W_{i},P_{i},D_{i})$, where $W_{i}$ is a SQL workload, $P_{i} = [p_{i1},..,p_{iL}]$ is a vector of parameters that are used to list both the available computing resources and DBMS configuration parameters relevant to the cost model, and $D_{i}$ is  the database instance. 
 
@@ -105,8 +105,24 @@ The calibration follows the basic methodology for each parameter $p_{ij} \in P_{
 During the described methodology, calibration queries should be carefully chosen. They need to be dependent only on the parameter that is being calibrated. If it is not possible to isolate one parameter, a system of $k$ equations is solved to determine the values for the $k$ parameters.
 
 
-\section{Online refinement}
+\subsection{Online refinement}
 
 The initial allocation is based on the calibrated query optimizer cost model, as described earlier. This enables the advisor to make recommendations based on an informed cost model. However, this model may have inaccuracies that lead to sub-optimal recommendations. The  \textit{online refinement} is based on the observation the actual times of different workloads in the different virtual machines. It uses these observations to refine resource allocation recommendations. Then the advisor is rerun with the new cost models, so  we can obtain an improved resource allocation for different workloads. These optimizations are performed until the allocations stabilize. It's important to notice that the goal of the \textit{online refinement} is not deal with dynamic changes in the workload, which are dealt by another module, but to correct cost models. Thus, it's assumed that the workload is not going to change during this process. 
 
+In order to optimize the recommendations, it is necessary to identify the cost model behaviour. The author identifies two types of models. The first is the \textit{linear model}, which can describe the allocation of CPU. For this resource workload completion times is linear in the inverse of the resource allocation level. Thus, the cost model in this case can be represented by
+\[
+ Cost(W_{i}, [r_{i}]) = \frac{\alpha_{i}}{r_{i}} +\beta_{i}.
+\]
 
+The values $\alpha_{i}$ and $\beta_{i}$ are obtained through a linear regression. This regression is performed on multiple points represented by estimated costs for different $r_{i}$ values used during the initial allocation phase. This cost is adjusted by two parameters, $Est_{i}$ and $Act_{i}$, they represent the estimated cost of workload and the runtime cost, respectively. When the cost is underestimated, these parameters are used to increase the slope of our cost equation. From another standpoint, when this value is overestimated, we need to decrease the slope. This is achieved by
+\[
+  Cost(W_{i}, [r_{i}]) = \frac{Act_{i}}{Est_{i}} * \frac{\alpha_{i}}{r_{i}} + \frac{Act_{i}}{Est_{i}} * \beta_{i}.
+\]
+
+However, not all resources are linear. The second type of cost model identified is the \textit{piecewise-linear}, which describes the allocation of memory. Increasing this resource does not consistently result in performance gain. The magnitude and the rate of improvement change according to the query execution plan. The cost equation is similar to the linear cost model, it is given by
+\[
+  Cost(W_{i}, [r_{i}]) = \frac{Act_{i}}{Est_{i}} * \frac{\alpha_{ij}}{r_{i}} + \frac{Act_{i}}{Est_{i}} * \beta_{ij}, r_{i} \in A_{ij}.
+\]
+The difference here is the parameter $A_{ij}$, which represent the interval of resource allocation levels ($i$) corresponding to a particular query execution plan ($j$). Its intervals are obtained during the initial phase, when the query optimizer is called with different resource allocations and returns different query execution plans with their respective costs.
+
+Both of the equations presented work within their cost model. Nevertheless, a physical  machine has more than one type of resource. Therefore the author extends the cost equations to multiple resources. He deals with the case in which $M$ resources are recommended, such that $M-1$ resources can be modelled using a linear function, while $1$ resource is modelled using a piecewise-linear function.
