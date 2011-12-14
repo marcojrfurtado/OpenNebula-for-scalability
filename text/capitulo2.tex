@@ -98,7 +98,7 @@ The calibration follows the basic methodology for each parameter $p_{ij} \in P_{
  \item (1) Define a calibration query $Q$ and a calibration database $D$, such that $Cost_{DB}(Q,P_{i},D)$ is independent for all descritive parameters in $P_{i}$, except for $p_{ij}$; \\
   \item (2) Choose a resource allocation $R_{i}$, instantiate $D$, and run $Q$ under that resource allocation, and measure the execution time $T_{Q}$; \\
   \item (3) This step refers to the renormalization of the $Cost_{DB}$ provided by the DBMS. As mentioned earlier in this section, we are not going into the details of this step; \\
-  \item (4) Repeat the two preceding steps for a variety of $R_{i}$, associating with each parameter $p_{ij}$ that describes that resource. For instance, query optimizer parameters that describe CPU, I/O and memory are independent of each other and can be calibrated independently; \\
+  \item (4) Repeat the two preceding steps for a variety of $R_{i}$, associating with each  a value of $p_{ij}$, which describes a certain resource. For instance, query optimizer parameters that describe CPU, I/O and memory are independent of each other and can be calibrated independently; \\
   \item (5) Perform regression analysis on the set of $(R_{i},p_{ik})$ value pairs to determine a calibration function $Cal_{ij}$ that maps resource allocations to $p_{ik}$ values. \\
 \end{itemize}
 
@@ -123,6 +123,23 @@ However, not all resources are linear. The second type of cost model identified 
 \[
   Cost(W_{i}, [r_{i}]) = \frac{Act_{i}}{Est_{i}} * \frac{\alpha_{ij}}{r_{i}} + \frac{Act_{i}}{Est_{i}} * \beta_{ij}, r_{i} \in A_{ij}.
 \]
-The difference here is the parameter $A_{ij}$, which represent the interval of resource allocation levels ($i$) corresponding to a particular query execution plan ($j$). Its intervals are obtained during the initial phase, when the query optimizer is called with different resource allocations and returns different query execution plans with their respective costs.
+The difference here is the parameter $A_{ij}$, which represents the interval of resource allocation levels corresponding to a particular query execution plan, that is represented by $j$. Its intervals are obtained during the initial phase, when the query optimizer is called with different resource allocations and returns different query execution plans with their respective costs. These query execution plans define the boundaries of the $A_{ij}$ intervals. The end of this interval is the largest resource allocation level for which the query optimizer produced this plan. The initial values of $\alpha_{ij}$ and $\beta_{ij}$ are obtained through linear regression. Together with $A_{ij}$, they are subsequently adjusted.
 
-Both of the equations presented work within their cost model. Nevertheless, a physical  machine has more than one type of resource. Therefore the author extends the cost equations to multiple resources. He deals with the case in which $M$ resources are recommended, such that $M-1$ resources can be modelled using a linear function, while $1$ resource is modelled using a piecewise-linear function.
+Both of the equations presented work within their cost model. Nevertheless, a physical  machine has more than one type of resource. Therefore, the author extends the cost equations to multiple resources. He deals with the case in which $M$ resources are recommended, such that $M-1$ resources can be modelled using a linear function, while the resource $M$ is modelled using a piecewise-linear function. The cost of workload $W_{i}$, given a resource allocation $R_{i} = [r_{i1},...,r_{iM}]$ can be given by
+\[
+  Cost(W_{i}, R_{i}) = \sum_{j=1}^{M} \frac{Act_{i}}{Est_{i}} * \frac{\alpha_{ijk}}{r_{ij}} + \frac{Act_{i}}{Est_{i}} * \beta_{ik}, r_{iM} \in A_{iMk},
+\]
+in which $k$ represents a certain query execution plan, which defines the boundaries of $A_{iMk}$. 
+
+During refinement, this equation is supposed to be performed iteratively, in order to optimize the parameters $\alpha_{ijk}$ and $\beta_{ijk}$. This iteration is shown below.
+\begin{eqnarray*}
+ Cost(W_{i}, R_{i}) &=& \sum_{j=1}^{M} \frac{Act_{i}}{Est_{i}} * \frac{\alpha_{ijk}}{r_{ij}} + \frac{Act_{i}}{Est_{i}} * \beta_{ik} = \sum_{j=1}^{M} \frac{\alpha'_{ijk}}{r_{ij}} + \beta'_{ik}, r_{iM} \in A_{iMk} \\
+ Cost(W_{i}, R_{i}) &=& \sum_{j=1}^{M} \frac{Act_{i}}{Est_{i}} * \frac{\alpha'_{ijk}}{r_{ij}} + \frac{Act_{i}}{Est_{i}} * \beta'_{ik} = \sum_{j=1}^{M} \frac{\alpha''_{ijk}}{r_{ij}} + \beta''_{ik}, r_{iM} \in A_{iMk} \\
+  &\vdots&
+\end{eqnarray*}
+
+The author in \cite{Soror:2008:AVM:1376616.1376711} proposes an heuristic that changes the equation in the first iteration. Instead of  considering the interval $A_{iMk}$, the first iteration scales all the intervals of the cost equation (i.e., for all $k$). This is done because the estimation errors may reside in a bias in the query optimizer's view of resource allocation levels. In the second iteration and beyond, this cost will be refined according to the interval $A_{iMk}$, where the resource $r_{iM}$ will be scaled.
+
+These refinement iterations will stop under two situations. The first is when the newly resource allocation recommendation is the same as the second. The second situation is when the refinement continues beyond $M$ iterations. In this case the refinement process continues, but through a linear regression model to the observed points. The query estimates wouldn't be necessary anymore. This process only finishes when the number of iterations reach an upper bound, placed manually. It is used to guarantee termination.
+
+\section{Dynamic configuration management}
