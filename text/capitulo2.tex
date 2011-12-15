@@ -142,7 +142,7 @@ The author in \cite{Soror:2008:AVM:1376616.1376711} proposes an heuristic that c
 
 These refinement iterations will stop under two situations. The first is when the newly resource allocation recommendation is the same as the second. The second situation is when the refinement continues beyond $M$ iterations. In this case the refinement process continues, but through a linear regression model to the observed points. The query estimates wouldn't be necessary anymore. This process only finishes when the number of iterations reach an upper bound, placed manually. It is used to guarantee termination.
 
-\section{Dynamic configuration management}
+\subsection{Dynamic configuration management}
 
 Even if we have an optimal resource allocation, the workload may change its behaviour during execution. They may occur due to the intensity of the workload (e.g. increased number of clients), or the nature of the workload (e.g. new set of queries with different resource needs ). These changes are not dealt by our online refinement, that's why the dynamic configuration management is needed. 
 
