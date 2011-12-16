@@ -8,12 +8,14 @@ This section will be used to described OpenNebula, that is a virtual infrastruct
   \item Supports configurable resource allocation policy.
 \end{itemize}
 
-The OpenNebula architecture is illustrated by ~\ref{fig:open_arch}. Each component is specialized in one aspect of VI management. The core takes care of the VM's life cycle. It has three management areas. The first is the preparation of disk images for VMs. It needs to control the image and storage technologies. The second is the network envrironment for them. And finally, it needs to control the hypervisors for creating or controlling VMs. All of these activities are performed through pluggable drivers. This modularity makes the system easier to extend.  
+The OpenNebula architecture is illustrated by ~\ref{fig:open_arch}. Each component is specialized in one aspect of VI management. The core takes care of the VM's life cycle. It has three management areas. The first is the preparation of disk images for the VMs. It needs to control the image and storage technologies. The second area is the setup of the network environment for the VMs . And finally, it needs to control the hypervisors for creating and controlling them. All of these activities are performed through pluggable drivers. This modularity makes the system easier to extend and avoids tying it to any specific technology. Other benefit of the core is the ability to support services	
+
+
 
 
 \begin{figure}[ht]
   \centering
- \includegraphics[scale=0.4]{opennebula_arch.png}
+ \includegraphics[scale=1]{one-architecture.png}
   \caption{OpenNebula architecture}
   \label{fig:open_arch}
 \end{figure}
