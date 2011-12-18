@@ -626,7 +626,7 @@
 \newdimen\bibindent
 \setlength\bibindent{1.5em}
 \newenvironment{thebibliography}[1]
-     {\chapter*{Bibliografia
+     {\chapter*{References
         \@mkboth{\MakeUppercase\bibname}{\MakeUppercase\bibname}}%
       \list{\@biblabel{\@arabic\c@enumiv}}%
            {\settowidth\labelwidth{\@biblabel{#1}}%

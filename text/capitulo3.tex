@@ -8,10 +8,7 @@ This section will be used to described OpenNebula, that is a virtual infrastruct
   \item Supports configurable resource allocation policy.
 \end{itemize}
 
-The OpenNebula architecture is illustrated by ~\ref{fig:open_arch}. Each component is specialized in one aspect of VI management. The core takes care of the VM's life cycle. It has three management areas. The first is the preparation of disk images for the VMs. It needs to control the image and storage technologies. The second area is the setup of the network environment for the VMs . And finally, it needs to control the hypervisors for creating and controlling them. All of these activities are performed through pluggable drivers. This modularity makes the system easier to extend and avoids tying it to any specific technology. Other benefit of the core is the ability to support services	
-
-
-
+The OpenNebula architecture is illustrated by ~\ref{fig:open_arch}. It basically can be split into three layers. The core (middle layer ) has three management areas. One of them is dealing with the creation of virtual networks, which is done through the Virtual Network (VN) manager. This component keeps track of leases ( a set form by one IP and one MAC addres valid on a particular network ), and their associations with VMs and physical bridges they are using. Second, it needs to manage and monitor the physical, which is responsibility of the host manager. And finally, there is the VM manager, responsible for taking care of a VM's life cycle. It prepare the disk images for them, by controlling the image and storage technologies. It also needs to control the hypervisors, for creating and controlling them. And combined with the VN manager, it provides the Vm with the network environment. These managers count with a SQL Pool, which saves the OpenNebula state, and in case of a failure, it is possible to restore it.
 
 \begin{figure}[ht]
   \centering
@@ -20,11 +17,29 @@ The OpenNebula architecture is illustrated by ~\ref{fig:open_arch}. Each compone
   \label{fig:open_arch}
 \end{figure}
 
+One important feature of the core module is the support of service deployment. The Request manager exposes a XML-RPC interface htat decouples most of the functionality present in the core. As OpenNebula is in continuing development, it is expected that this API will support even more functionality. Currently, it is known that dynamic resource allocation is not supported yet. We'll discuss this issue on the next section, as this functionality is important for the advisor.
 
+All these described activities are performed through pluggable drivers, present in the bottom layer. This modularity makes the system easier to extend and avoids tying it to any specific technology. The drivers shown in ~\ref{fig:open_arch}  address some particular areas, such as virtualization ( by controlling the hypervisor ), storage operations, gather monitoring information and authenticate user requests.
 
-% However, the scope of this paper is limited to the private part of the cloud, since it's neither possible, nor makes sense to balance the load of an external provider infrastructure.
+In the top layer tool there are both user interfaces to access OpenNebula, but also APIs extended from the XML-RPC, which can work between the core and other tools. More relevant for this paper is the OpenNebula's scheduler, also in this layer. Its job is to make VMs placement decisions, i.e. it assigns physical machines for VMs. It has access to all requests OpenNebula receives. Based on these requests, it keeps track on allocations and sends the appropriate deployment commands to OpenNebula core. As other modules, it can be replaced by third party solutions, such as Haizea\footnote{http://haizea.cs.uchicago.edu/},  which offers more sophisticated placement policies. However, in this paper we will stick to the OpenNebula's default scheduler.
 
+The scheduler already present in OpenNebula works only with immediate provisioning. Its concept is pretty straightforward, the resources are only provisioned at the moment they are required, if that's not possible, then the requirement is ignored. The requirements are done in a manual and static way, in which amount of resources, among other configurations, are defined in a file. The assignment is performed through a classification policy.  The administrator needs to set a \textit{RANK} variable, which defines which host is more suitable to host a VM. Each VM has its own \text{RANK}, and the scheduler assigns will assign a host with the highest value for this variable to a VM. It's possible to define a VM template in OpenNebula, so you can share the same scheduling policy  to a group of VMs. For instance, here are some possible \textit{RANK} definitions, each one serving a specific policy:
 
+\begin{itemize}
+ \item Load-aware Policy
+ \begin{itemize}
+   \item \textbf{Heuristic:} Use nodes with less load;
+   \item \textbf{Implementation:} Use nodes with more \textit{FREECPU} first.
+    \item \textit{RANK} = \textit{FREECPU}
 
+ \end{itemize}
 
+  \item Striping policy
+  \begin{itemize}
+   \item \textbf{Heuristic:} Spread the VMs in the cluster node;
+   \item \textbf{Implementation:} Use the nodes with less VMs running first.
+   \item \textit{RANK} = "\textit{- RUNNING\_VMS}"
+  \end{itemize}
+
+\end{itemize}
 

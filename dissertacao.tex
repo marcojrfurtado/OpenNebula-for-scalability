@@ -9,8 +9,12 @@
 \usepackage{amssymb,amsmath}
 \usepackage{epsfig}
 \usepackage{multirow}
+\usepackage{algorithm}
+\usepackage{algorithmic}
 
 
+\usepackage{eqparbox}
+\renewcommand{\algorithmiccomment}[1]{\hfill\eqparbox{COMMENT}{\# #1}}
 
 
 \usepackage{amssymb}
@@ -28,26 +32,12 @@
 
 \graphicspath{{./images/}}
 
-\usepackage{listings}
 
-\lstset{numbers=left,
-stepnumber=1,
-firstnumber=1,
-numberstyle=\tiny,
-extendedchars=true,
-breaklines=true,
-frame=tb,
-basicstyle=\footnotesize,
-stringstyle=\ttfamily,
-showstringspaces=false
-}
-\renewcommand{\lstlistingname}{Code}
-\renewcommand{\lstlistlistingname}{java}
 
 
 %% fim
 
-\title{Automatic elasticity in Cloud Computing}
+\title{Resource consolidation in Cloud Computing}
 \author{Antonio Carlos Salzvedel Furtado Junior}
 \advisortitle{Orientator} % ou Orientador
 \advisorname{Prof. Dr. Eduardo Almeida}
@@ -101,14 +91,14 @@ showstringspaces=false
 \input{./text/capitulo1.tex}
 \input{./text/capitulo2.tex}
 \input{./text/capitulo3.tex}
-%\input{./text/capitulo4.tex}
-%\input{./text/capitulo5.tex}
+\input{./text/capitulo4.tex}
+\input{./text/capitulo5.tex}
 %\input{capitulo6.tex}
 %\input{anexo1.tex}     % se houver anexo
 
 
 
-
+\nocite{*}
 \bibliographystyle{plain}
 \bibliography{tg}
 % utilize macros (3 primeiras letras do mes em ingles, minusculas) no seu
@@ -122,7 +112,7 @@ showstringspaces=false
 %   month =        {}#sep;
 % }
 %
-\addcontentsline{toc}{chapter}{\MakeUppercase{Bibliografia}}
+\addcontentsline{toc}{chapter}{\MakeUppercase{References}}
 
 \singlespacing
 \makecapadissertacao
