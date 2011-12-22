@@ -1,8 +1,8 @@
 \chapter{\textbf{Final considerations}}
 
-Even though OpenNebula's capabilities of scheduling enables a way of distribution of resources, this is not enough for consolidating resources. Its goal is not to analyse the application workload inside a VM. That's why the resources need to be required in a static way, in which it's not possible to reallocate resources.
+Even though OpenNebula's capabilities of scheduling enables a way of distributing resources, this is not enough for consolidating them. Its goal is not to analyse the application workload inside a VM. That's why the resources need to be required in a static way, in which it's not possible for them to be reallocated.
 
 The virtualization design advisor is a way of distributing these resources by considering the database workload. Although it generates overhead, it provides a way of dealing with both over- and under- utilization of resources. 
 
 
-For a future work, the cloud infrastructure should be more exploited. Through live migration of VMs, a technology already supported by most hypervisors and OpenNebula, it's possible to transfer VMs from one host to another. This could be useful in cases which avoiding over-utilization of resources is not possible ( e.g. Too many VMs with high CPU needs ). This paper was limited to deal with the problem of resource consolidation inside each host. By considering other hosts into the model, it could be possible to broaden to deal with server consolidation.
+For a future work, the cloud infrastructure should be more exploited. Through live migration of VMs, a technology already supported by most hypervisors and OpenNebula, it's possible to transfer VMs from one host to another. This could be useful in cases which avoiding over-utilization of resources is not possible ( e.g. too many VMs with high CPU needs in a host ). This paper was limited to deal with the problem of resource consolidation inside each host. By considering other hosts into our model, it could be possible to broaden the allocation alternatives. Then the problem would be expanded to deal with server consolidation.

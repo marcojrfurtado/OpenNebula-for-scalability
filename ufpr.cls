@@ -176,10 +176,10 @@
       \vspace{4cm}
       
       
-      \hfill{\parbox{8cm}{Trabalho de Conclus\~{a}o de Curso
-          apresentado ao Curso de Bacharelado em Ci\^{e}ncia
-	  da Computa\c{c}\~{a}o do Departamento de Inform{\'a}tica,
-	  Setor de Ci{\^e}ncias Exatas, Universidade Federal do Paran{\'a}.\\
+      \hfill{\parbox{8cm}{Term paper presented as a requirement in
+	   the  Bachelor in Computer Science program
+	  from the Informatics Depatment,
+	  Exact Sciences Sector, Universidade Federal do Paran{\'a}.\\
           \@advisortitle: \@advisorname}}\par  \null\vfill
       \MakeUppercase\@city\\
       \vspace{0.5cm}
