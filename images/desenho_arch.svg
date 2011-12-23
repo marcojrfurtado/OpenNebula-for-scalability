@@ -13,9 +13,9 @@
    height="297mm"
    id="svg2"
    version="1.1"
-   inkscape:version="0.47 r22583"
+   inkscape:version="0.48.1 r9760"
    sodipodi:docname="desenho_arch.svg"
-   inkscape:export-filename="/home/bcc/acsfj08/OpenNebula-for-scalability/images/one-architecture.png"
+   inkscape:export-filename="/home/antonio/Documents/OpenNebula-for-scalability/images/one-architecture_2.png"
    inkscape:export-xdpi="300"
    inkscape:export-ydpi="300">
   <defs
@@ -92,16 +92,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="270.23625"
+     inkscape:cx="271.66482"
      inkscape:cy="845.61742"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
      inkscape:snap-bbox="true"
-     inkscape:window-width="1440"
-     inkscape:window-height="880"
-     inkscape:window-x="-1"
-     inkscape:window-y="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1022"
+     inkscape:window-x="0"
+     inkscape:window-y="26"
      inkscape:window-maximized="1">
     <inkscape:grid
        type="xygrid"
@@ -124,17 +124,17 @@
      inkscape:groupmode="layer"
      id="layer1">
     <path
-       style="fill:#00ff00;fill-opacity:0.33552635;stroke:none"
+       style="fill:#b3b3b3;fill-opacity:0.33552634999999997;stroke:none"
        d="m 60,287.36218 460,0 20,0 0,45 c 0,11.08 -8.92,20 -20,20 l -460,0 c -11.08,0 -20,-8.92 -20,-20 l 0,-45 20,0 z"
        id="rect3816"
        sodipodi:nodetypes="ccccccccc" />
     <path
-       style="fill:#00ff00;fill-opacity:0.33552635;stroke:none"
+       style="fill:#b3b3b3;fill-opacity:0.33552634999999997;stroke:none"
        d="m 520,167.36218 -460,0 -20,0 0,-44.99999 c 0,-11.08 8.92,-20.00001 20,-20.00001 l 460,0 c 11.08,0 20,8.92001 20,20.00001 l 0,44.99999 -20,0 z"
        id="rect3816-0"
        sodipodi:nodetypes="ccccccccc" />
     <rect
-       style="fill:#00ffff;stroke:none;fill-opacity:0.33552632"
+       style="fill:#4d4d4d;stroke:none;fill-opacity:0.33552631999999999"
        id="rect3036"
        width="500"
        height="120"
@@ -172,7 +172,7 @@
        height="50"
        width="130"
        id="use2854"
-       style="fill:#00ff00;stroke:#000000;fill-opacity:0.52302629" />
+       style="fill:#ffffff;stroke:#000000;fill-opacity:0.52302629000000000" />
     <rect
        inkscape:tile-y0="112.36218"
        inkscape:tile-x0="120"
@@ -182,7 +182,7 @@
        height="50"
        width="130"
        id="use2860"
-       style="fill:#00ff00;stroke:#000000;fill-opacity:0.52302629" />
+       style="fill:#ffffff;stroke:#000000;fill-opacity:0.52302629000000000" />
     <rect
        inkscape:tile-y0="112.36218"
        inkscape:tile-x0="120"
@@ -192,7 +192,7 @@
        height="50"
        width="130"
        id="use2862"
-       style="fill:#00ff00;stroke:#000000;fill-opacity:0.52302629" />
+       style="fill:#ffffff;stroke:#000000;fill-opacity:0.52302629000000000" />
     <rect
        inkscape:tile-y0="112.36218"
        inkscape:tile-x0="120"
@@ -202,7 +202,7 @@
        height="50"
        width="267.20001"
        id="use2864"
-       style="fill:#00ffff;stroke:#000000" />
+       style="fill:#ffffff;stroke:#000000" />
     <rect
        inkscape:tile-y0="112.36218"
        inkscape:tile-x0="120"
@@ -212,7 +212,7 @@
        height="50"
        width="130"
        id="use2868"
-       style="fill:#00ff00;stroke:#000000;fill-opacity:0.52302629" />
+       style="fill:#ffffff;stroke:#000000;fill-opacity:0.52302629000000000" />
     <rect
        inkscape:tile-y0="112.36218"
        inkscape:tile-x0="120"
@@ -222,7 +222,7 @@
        height="50"
        width="130"
        id="use2870"
-       style="fill:#00ff00;stroke:#000000;fill-opacity:0.52302629" />
+       style="fill:#ffffff;stroke:#000000;fill-opacity:0.52302629000000000" />
     <rect
        inkscape:tile-y0="112.36218"
        inkscape:tile-x0="120"
@@ -232,7 +232,7 @@
        height="50"
        width="130"
        id="use2876"
-       style="fill:#00ff00;stroke:#000000;fill-opacity:0.52302629" />
+       style="fill:#ffffff;stroke:#000000;fill-opacity:0.52302629000000000" />
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -320,7 +320,7 @@
        height="50"
        width="130"
        id="use2856"
-       style="fill:#00ffff;stroke:#000000" />
+       style="fill:#ffffff;stroke:#000000" />
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -348,7 +348,7 @@
          y="210.29236"
          id="tspan2888">(XML-RCP)</tspan></text>
     <rect
-       style="fill:#00ffff;stroke:#000000"
+       style="fill:#ffffff;stroke:#000000"
        id="use2894"
        width="85.200012"
        height="50"
@@ -358,7 +358,7 @@
        inkscape:tile-x0="257.79999"
        inkscape:tile-y0="232.36218" />
     <rect
-       style="fill:#00ffff;stroke:#000000"
+       style="fill:#ffffff;stroke:#000000"
        id="use2896"
        width="84.768005"
        height="50"
@@ -368,7 +368,7 @@
        inkscape:tile-x0="257.79999"
        inkscape:tile-y0="232.36218" />
     <rect
-       style="fill:#00ffff;stroke:#000000"
+       style="fill:#ffffff;stroke:#000000"
        id="use2898"
        width="82.335968"
        height="50"
@@ -460,7 +460,7 @@
          style="fill:#b3b3b3;stroke:#000000" />
       <path
          transform="matrix(0.875,0,0,1,-18.125,-5)"
-         d="m 215,242.36218 a 20,5 0 1 1 -40,0 20,5 0 1 1 40,0 z"
+         d="m 215,242.36218 c 0,2.76143 -8.95431,5 -20,5 -11.04569,0 -20,-2.23857 -20,-5 0,-2.76142 8.95431,-5 20,-5 11.04569,0 20,2.23858 20,5 z"
          sodipodi:ry="5"
          sodipodi:rx="20"
          sodipodi:cy="242.36218"
