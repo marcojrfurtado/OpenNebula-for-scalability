@@ -1,0 +1,15 @@
+Install nfs-utils and nfs-utils-libs
+
+add to /etc/exports
+	/home/opennebula/images 10.254.0.0/16(ro,sync,no_root_squash)
+
+run:
+	exportfs -rav
+
+add to /etc/nfsmount.conf
+	Nfsvers=3
+
+start the service:
+	service start nfs-server
+
+

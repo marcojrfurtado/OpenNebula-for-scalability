@@ -1,0 +1,8 @@
+Use o comando:
+
+virt-install -n centos -r 512 --vcpus=1 --os-variant=rhel6  -v -l http://centos.ufms.br/6.2/os/x86_64/ -w bridge=virbr0 --graphics vnc --disk=./centos.img,size=6
+
+
+Para criar a imagem da VM do CentOS, com 6G de armazenamento, 512MB de RAM e 1 CPU Virtual. A rede vem da interface virbr0.
+
+Certifique-se que o usuário qemu tem acesso ao diretório onde será criada a imagem. Em meu caso, foi criado o diretório /vm. Se necessário, dê a permissão de root a este usuário.
