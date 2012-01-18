@@ -5,4 +5,19 @@ virt-install -n centos -r 512 --vcpus=1 --os-variant=rhel6  -v -l http://centos.
 
 Para criar a imagem da VM do CentOS, com 6G de armazenamento, 512MB de RAM e 1 CPU Virtual. A rede vem da interface virbr0.
 
-Certifique-se que o usuário qemu tem acesso ao diretório onde será criada a imagem. Em meu caso, foi criado o diretório /vm. Se necessário, dê a permissão de root a este usuário.
+Certifique-se que o usuário qemu tem acesso ao diretório onde será criada a imagem. Em meu caso, foi criado o diretório /vm. aDICIONE O USUARIO DO one ao grupo KVM e QEMU.
+
+Leia com atenção: http://opennebula.org/documentation:archives:rel3.0:kvmg, especialmente KVM configuration.
+
+Altere o arquivo de configuração /et/libvirtd/qemu.conf nas seguintes partes:
+
+	* Descomente a linha  vnc_listen = "0.0.0.0", para que possamos acessar as maquinas virtuais através de todas as interfaces.
+	* Inclua: dynamic_ownership = 0 
+	* ALtere: user = opennebula, group = opennebula	
+
+
+
+/etc/libvirt/libvirtd.conf : Uncomment “listen_tcp = 1”. Security configuration is left to the admin's choice, file is full of useful comments to achieve a correct configuration.
+Em /etc/init.d/libvirtd, altere LIBVIRTD_ARGS="--listen". CUidado com a autenticação.
+Altere listen_tls = 0
+Todos os parâmetros de autenticação podem ser desabilitados.
