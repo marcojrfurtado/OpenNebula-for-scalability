@@ -13,7 +13,7 @@ Altere o arquivo de configuração /et/libvirtd/qemu.conf nas seguintes partes:
 
 	* Descomente a linha  vnc_listen = "0.0.0.0", para que possamos acessar as maquinas virtuais através de todas as interfaces.
 	* Inclua: dynamic_ownership = 0 
-	* ALtere: user = opennebula, group = opennebula	
+	* ALtere: user = opennebula, group = oneadmin	
 
 
 
@@ -21,3 +21,15 @@ Altere o arquivo de configuração /et/libvirtd/qemu.conf nas seguintes partes:
 Em /etc/init.d/libvirtd, altere LIBVIRTD_ARGS="--listen". CUidado com a autenticação.
 Altere listen_tls = 0
 Todos os parâmetros de autenticação podem ser desabilitados.
+
+
+Por fim, crie um link de /usr/bin/qemu-kvm:
+ln -s /usr/bin/qemu-kvm  /usr/bin/kvm
+
+
+
+Nota: Estudar uso do Qemu-KVM com cache de imagens:
+		-drive [file=file][,if=type][,bus=n][,unit=m][,media=d][,index=i]
+		       [,cyls=c,heads=h,secs=s[,trans=t]][,snapshot=on|off]
+		       [,cache=writethrough|writeback|none|unsafe][,format=f]
+

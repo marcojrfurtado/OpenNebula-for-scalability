@@ -1,0 +1,12 @@
+Para que um host possa ser adicionado ao cluster de maneira bem-sucedida, é necessário que o mesmo possa ser acessado sem login.
+
+
+Primeiro, certifique-se que o sshd está rodando.
+
+Isto feito,  precisamos então de um par de chaves. A chave pública deve ser adicionada ao arquivo ~/.ssh/authorized_keys de cada host.
+
+Crie então no host um ssh-agent, e informe-o a chave usada. 
+You should start it with eval `ssh-agent` so that the output is used to update your environment.
+	$ eval `ssh-agent`
+	$ ssh-add ~/.ssh/id_(dsa|rsa)
+

@@ -1,0 +1,12 @@
+Todos os templates estão em $ONE_LOCATION/templates:
+
+Instancia cada uma dessas imagens com os comandos:
+
+onevnet create $ONE_LOCATION/templates/network/private.net
+oneimage create $ONE_LOCATION/templates/image/centos.template
+onetemplate create $ONE_LOCATION/templates/vm/default.template
+
+
+
+
+Don't forget to add the hosts to be used in the cluster, this can be achieved by the command 'onehost create'.
