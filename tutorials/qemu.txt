@@ -26,7 +26,9 @@ Todos os parâmetros de autenticação podem ser desabilitados.
 Por fim, crie um link de /usr/bin/qemu-kvm:
 ln -s /usr/bin/qemu-kvm  /usr/bin/kvm
 
-
+Install acpid on each guest. Make sure the vm allows acpi. Genreate a XML Dump to find out:
+virsh -c qemo:///system
+dumpxml <domain>
 
 Nota: Estudar uso do Qemu-KVM com cache de imagens:
 		-drive [file=file][,if=type][,bus=n][,unit=m][,media=d][,index=i]
