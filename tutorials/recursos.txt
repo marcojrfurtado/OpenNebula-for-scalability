@@ -1,0 +1,16 @@
+
+Comandos dentro de virsh -c qemu:///system
+    setmem                         change memory allocation
+    setvcpus                       change number of virtual CPUs
+
+
+	dommenstat
+
+
+
+Verifique se o KSM está rodando:
+	grep KSM /boot/config-`uname -r`
+Nota: Pesquisar e comentar sobre ele no trabalho. Ele permite o compartilhamento de páginas pelos diferentes guestOS.
+
+
+Note: Check Out mom - https://github.com/aglitke/mom/tree/master/mom
