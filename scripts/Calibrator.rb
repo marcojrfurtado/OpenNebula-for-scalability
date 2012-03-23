@@ -43,8 +43,10 @@ class Calibrator
 
         costs = Array.new
         result = run_analyze_query(fp.sysread(FILE_MAX_CONTENT))
+	puts result.values
         result.each{ |tuple|
-            costs<< get_actual_total_cost(tuple['QUERY PLAN'])
+            new_cost = get_actual_total_cost(tuple['QUERY PLAN'])
+	    costs << new_cost if new_cost
         }
         costs
     end
@@ -56,10 +58,8 @@ private
     end
 
     def get_actual_total_cost(tuple)
-#        puts tuple
-        tuple.split.each{ |word|
-            puts word
-        }
+	match = tuple[/actual time=([0-9]*\.[0-9]+|[0-9]+)\.\.([0-9]*\.[0-9]+|[0-9]+)/, 2]
+	match.to_f
     end
 
 end
