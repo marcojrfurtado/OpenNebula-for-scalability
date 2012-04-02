@@ -43,71 +43,97 @@ exit -1 if OpenNebula.is_error?(host)
 host.info
 host_name = host.name
 
-# Search for Image Template
-images = ImagePool.new(client)
-exit -1 if OpenNebula.is_error?(images)
-images.info_all
-image_ids_array = images.retrieve_elements("/IMAGE_POOL/IMAGE[NAME='CentOS 6 with PostgreSQL databases']/ID")
+
+# Check wheteher there is already a Calibration VM to be used
+#
+vms = VirtualMachinePool.new(client)
+exit -1 if OpenNebula.is_error?(vms)
+vms.info_all
+vm_ids_array = vms.retrieve_elements("/VM_POOL/VM[STATE=1 and contains(NAME,\"calib-host\")]/ID")
+
+if vm_ids_array
+    vm_id = vm_ids_array.first
+    vm = OpenNebula::VirtualMachine.new_with_id(vm_id,client)
+    vm.info
+else
+    # Search for Image Template
+    images = ImagePool.new(client)
+    exit -1 if OpenNebula.is_error?(images)
+    images.info_all
+    image_ids_array = images.retrieve_elements("/IMAGE_POOL/IMAGE[NAME='CentOS 6 with PostgreSQL databases']/ID")
 
 
-unless image_ids_array
-	puts "Couldn't find calibration image."
-	exit(-1)
-end
+    unless image_ids_array
+    	puts "Couldn't find calibration image."
+    	exit(-1)
+    end
 
-image = OpenNebula::Image.new_with_id(image_ids_array.first,client)
+    image = OpenNebula::Image.new_with_id(image_ids_array.first,client)
 
+    image.info
 
-image.info
-
-state = OpenNebula::Image::IMAGE_STATES[image.state]
-if  state == 'DISABLED'
-	image.enable
-end
-
+    state = OpenNebula::Image::IMAGE_STATES[image.state]
+    if  state == 'DISABLED'
+    	image.enable
+    end
 
 
-# Loop through all templates
-templates = TemplatePool.new(client)
-exit -1 if OpenNebula.is_error?(templates)
 
-templates.info_all
-template_ids_array = templates.retrieve_elements("/VMTEMPLATE_POOL/VMTEMPLATE/TEMPLATE/DISK[IMAGE_ID=\"#{image.id}\"]/../../ID")
+    # Loop through all templates
+    templates = TemplatePool.new(client)
+    exit -1 if OpenNebula.is_error?(templates)
+
+    templates.info_all
+    template_ids_array = templates.retrieve_elements("/VMTEMPLATE_POOL/VMTEMPLATE/TEMPLATE/DISK[IMAGE_ID=\"#{image.id}\"]/../../ID")
 
 
-if template_ids_array
-    template_ids_array.each do |template_id|
+
+    if template_ids_array
+        template_id = template_ids_array.first
     	template = OpenNebula::Template.new_with_id(template_id, client)
     	template.info
 
         vm_id=template.instantiate("calib-host:#{host_id}")
     	exit -1 if OpenNebula.is_error?(vm_id)
 
-    	vm = OpenNebula::VirtualMachine.new_with_id(vm_id)
+    	vm = OpenNebula::VirtualMachine.new_with_id(vm_id,client)
         vm.info
-
-        vm.hold
-
-    	vm.deploy(host_id)
-
-    	sleep DEPLOY_TIMEOUT.seconds
-    	att = 1
-    	vm.info
-    	while (  OpenNebula::VM_STATE[vm.state] != 'ACTIVE'   )
-    		if  ( att >= DEPLOY_CHECK )
-    			puts "Couldn't deploy VM."
-    			exit -1;
-    		end
-            if ( OpenNebula::VM_STATE[vm.state] == 'FAILED' )
-                puts "Deployment failed."
-            end
-    		att+=1
-            sleep DEPLOY_TIMEOUT.seconds
-            vm.info
-    	end
-
     end
 end
+#vm.hold
+vm.deploy(host_id)
+exit -1 if OpenNebula.is_error?(templates)
+if ( vm.nil?  )
+    puts "Wasn't able to deploy this VM."
+    exit -1
+end
+
+sleep DEPLOY_TIMEOUT
+att = 1
+vm.info
+while (  OpenNebula::VirtualMachine::VM_STATE[vm.state] != 'ACTIVE' and OpenNebula::VirtualMachine::LCM_STATE[vm.lcm_state] != 'RUNNING'  )
+        if  ( att >= DEPLOY_CHECK )
+            puts "Deployment timeout expired."
+            exit -1;
+        end
+        if ( OpenNebula::VirtualMachine::VM_STATE[vm.state] == 'FAILED' or OpenNebula::VirtualMachine::LCM_STATE[vm.lcm_state] != 'FAILURE' )
+            puts "Deployment failed."
+        end
+        att+=1
+        sleep DEPLOY_TIMEOUT
+        vm.info
+end
+
+
+vm.stop
+
+# Get this VM's IP
+vnets = VirtualNetworkPool.new(client)
+exit -1 if OpenNebula.is_error?(vnets)
+vnets.info_all
+puts vnets.inspect
+#vnet_ids_array = vms.retrieve_elements("/VNET_POOL/VNET/")
+
 
 
 exit 0
