@@ -6,7 +6,7 @@
 
 ONE_LOCATION=ENV["ONE_LOCATION"]
 
-DEPLOY_TIMEOUT=10
+DEPLOY_TIMEOUT=15
 DEPLOY_CHECK=4
 
 if !ONE_LOCATION
@@ -60,7 +60,7 @@ else
     images = ImagePool.new(client)
     exit -1 if OpenNebula.is_error?(images)
     images.info_all
-    image_ids_array = images.retrieve_elements("/IMAGE_POOL/IMAGE[NAME='CentOS 6 with PostgreSQL databases']/ID")
+    image_ids_array = images.retrieve_elements("/IMAGE_POOL/IMAGE[NAME='Debian Calibration']/ID")
 
 
     unless image_ids_array
@@ -101,6 +101,9 @@ else
     end
 end
 #vm.hold
+
+
+# Deploy this VM
 vm.deploy(host_id)
 exit -1 if OpenNebula.is_error?(templates)
 if ( vm.nil?  )
@@ -108,15 +111,16 @@ if ( vm.nil?  )
     exit -1
 end
 
+# We wait for some time, so it can boot.
 sleep DEPLOY_TIMEOUT
 att = 1
 vm.info
-while (  OpenNebula::VirtualMachine::VM_STATE[vm.state] != 'ACTIVE' and OpenNebula::VirtualMachine::LCM_STATE[vm.lcm_state] != 'RUNNING'  )
+while (  OpenNebula::VirtualMachine::VM_STATE[vm.state] != 'ACTIVE' or OpenNebula::VirtualMachine::LCM_STATE[vm.lcm_state] != 'RUNNING'  )
         if  ( att >= DEPLOY_CHECK )
             puts "Deployment timeout expired."
             exit -1;
         end
-        if ( OpenNebula::VirtualMachine::VM_STATE[vm.state] == 'FAILED' or OpenNebula::VirtualMachine::LCM_STATE[vm.lcm_state] != 'FAILURE' )
+        if ( OpenNebula::VirtualMachine::VM_STATE[vm.state] == 'FAILED' or OpenNebula::VirtualMachine::LCM_STATE[vm.lcm_state] == 'FAILURE' )
             puts "Deployment failed."
         end
         att+=1
@@ -125,14 +129,23 @@ while (  OpenNebula::VirtualMachine::VM_STATE[vm.state] != 'ACTIVE' and OpenNebu
 end
 
 
-vm.stop
 
 # Get this VM's IP
-vnets = VirtualNetworkPool.new(client)
-exit -1 if OpenNebula.is_error?(vnets)
-vnets.info_all
-puts vnets.inspect
-#vnet_ids_array = vms.retrieve_elements("/VNET_POOL/VNET/")
+
+vm_ip = vm.retrieve_elements("/VM/TEMPLATE/NIC/IP")
+
+
+# Connect to the PostgreSQ service
+begin
+    cl = Calibration.new( :host => vm_ip )
+rescue Error => e
+    puts e.message
+    puts 'Wasn\'t able to connect to the PostgreSQL inside the VM. Check Network COnfigurations.'
+    exit -1
+end
+
+
+
 
 
 

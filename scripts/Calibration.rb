@@ -6,7 +6,7 @@ module OpenDC
 	class Calibration
 
 
-	    DEFAULT_HOST = "localhost"
+	    DEFAULT_HOST = "127.0.0.1"
 	    DEFAULT_PORT = 5432
 	    DEFAULT_DBNAME = "calibration"
 	    DEFAULT_DBUSER = "calibrate"
@@ -18,15 +18,15 @@ module OpenDC
 	    FILE_MAX_CONTENT = 90000
 
 
-	    def initialize( host = DEFAULT_HOST, port = DEFAULT_PORT, dbname = DEFAULT_DBNAME, dbuser = DEFAULT_DBUSER, dbpassword = DEFAULT_DBPASSWORD)
+	    def initialize( hostaddr = DEFAULT_HOST, port = DEFAULT_PORT, dbname = DEFAULT_DBNAME, dbuser = DEFAULT_DBUSER, dbpassword = DEFAULT_DBPASSWORD)
 
 #		@conn = PG.connect( :host => host, :dbname => dbname, :port => port, :user => dbuser, :password => dbpassword ) or
 #		            abort "Unable to create a new connection!"
 
-		@conn = PG.connect( :host => host, :dbname => dbname, :port => port, :user => dbuser, :password => dbpassword ) 
+		@conn = PG.connect( :hostaddr => hostaddr, :dbname => dbname, :port => port, :user => dbuser, :password => dbpassword )
 
 		unless @conn
-			raise Error "Couldn't connect to specified database" 
+			raise Error "Couldn't connect to specified database"
 		end
 
 
@@ -40,14 +40,20 @@ module OpenDC
 		    Error "Unable to open file #{query_file}."
 		end
 
-		costs = Array.new
+		formatted_result_set = Array.new
 		result = run_analyze_query(fp.sysread(FILE_MAX_CONTENT))
 		puts result.values
 		result.each{ |tuple|
+            formatted_result = QueryResult.new
 		    new_cost = get_actual_total_cost(tuple['QUERY PLAN'])
-			costs << new_cost if new_cost
+            num_rows = get_total_rows(tuple['QUERY PLAN'])
+            if new_cost and num_rows
+                formatted_result.rows = num_rows
+                formatted_result.actual_total_cost = new_cost
+			    formatted_result_set << formatted_result
+            end
 		}
-		costs
+		formatted_result_set
 	    end
 
 	private
@@ -57,13 +63,22 @@ module OpenDC
 	    end
 
 	    def get_actual_total_cost(tuple)
-		match = tuple[/actual time=([0-9]*\.[0-9]+|[0-9]+)\.\.([0-9]*\.[0-9]+|[0-9]+)/, 2]
+    		match = tuple[/actual time=([0-9]*\.[0-9]+|[0-9]+)\.\.([0-9]*\.[0-9]+|[0-9]+)/, 2]
 		    if match
 		    match.to_f
-		else
-		    nil
-		end
+    		else
+	    	    nil
+		    end
 	    end
+
+        def get_total_rows(tuple)
+            match= tuple[/rows=([0-9]*)/,1]
+            if match
+                match.to_i
+            else
+                nil
+            end
+        end
 
 	end
 

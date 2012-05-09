@@ -12,8 +12,8 @@ Leia com atenção: http://opennebula.org/documentation:archives:rel3.0:kvmg, es
 Altere o arquivo de configuração /et/libvirtd/qemu.conf nas seguintes partes:
 
 	* Descomente a linha  vnc_listen = "0.0.0.0", para que possamos acessar as maquinas virtuais através de todas as interfaces.
-	* Inclua: dynamic_ownership = 0 
-	* ALtere: user = opennebula, group = oneadmin	
+	* Inclua: dynamic_ownership = 0
+	* ALtere: user = opennebula, group = oneadmin
 
 
 
@@ -35,3 +35,4 @@ Nota: Estudar uso do Qemu-KVM com cache de imagens:
 		       [,cyls=c,heads=h,secs=s[,trans=t]][,snapshot=on|off]
 		       [,cache=writethrough|writeback|none|unsafe][,format=f]
 
+http://doc.opensuse.org/documentation/html/openSUSE/opensuse-kvm/cha.libvirt.connect.html

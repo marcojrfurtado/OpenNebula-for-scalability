@@ -48,6 +48,13 @@ module OpenDC
         end
     end
 
+    # This class represents the results obtained after an EXPLAIN ANALZYZE query execution.
+    # In OpenDC, only inherent data is filtered.
+    class QueryResult <
+
+        Struct::new(:rows, :actual_total_cost)
+    end
+
     # Returns true if the object returned by a method of the OpenDC
     # library is an Error
     def self.is_error?(value)

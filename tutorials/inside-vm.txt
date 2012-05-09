@@ -14,3 +14,7 @@ Verifique também a configuração da rede em: cat /etc/sysconfig/network-script
 
 Reset a rede, e tudo estará ok.
 fonte:http://aaronwalrath.wordpress.com/2011/02/26/cloned-red-hatcentosscientific-linux-virtual-machines-and-device-eth0-does-not-seem-to-be-present-message/
+
+copy vmcontext for Debian and do the following:
+
+Copy it in /etc/init.d/ and install with "update-rc.d vmcontext.sh start 01 S"
