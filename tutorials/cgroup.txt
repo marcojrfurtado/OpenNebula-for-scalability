@@ -1,0 +1,21 @@
+Make sure libcgroup e libcgroup-tools are installed.
+
+
+
+Em /etc/cgconfig.conf coloque o seguinte:
+
+mount {
+  	cpuset	= /cgroup/cpuset;
+  	cpu	= /cgroup/cpu;
+  	cpuacct	= /cgroup/cpuacct;
+#  	memory	= /cgroup/memory;
+#  	devices	= /cgroup/devices;
+#  	freezer	= /cgroup/freezer;
+#  	net_cls	= /cgroup/net_cls;
+#  	ns	= /cgroup/ns;
+#  	blkio	= /cgroup/blkio;
+}
+
+E em /etc/libvirt/qemu.conf permit que o libvirt ache automaticamente estes diretorios, fazendo:
+
+cgroup_controllers = [ "cpu" ]
