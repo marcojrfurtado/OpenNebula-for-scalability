@@ -1,4 +1,4 @@
-Make sure libcgroup e libcgroup-tools are installed.
+Make sure libcgroup e libcgroup-tools are installed. ( libcgroup-devel se desejar utilizar a API )
 
 
 
@@ -19,3 +19,9 @@ mount {
 E em /etc/libvirt/qemu.conf permit que o libvirt ache automaticamente estes diretorios, fazendo:
 
 cgroup_controllers = [ "cpu" ]
+
+
+
+Se o libvirt falhar em achar os diretórios. De um cgclear e reinicie o service cgconfig. Provavelmente o cgroups está montando em outro lugar e não está em conflit com o arquivo cgconfig.conf.
+
+
