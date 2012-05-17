@@ -1,0 +1,1 @@
+g++ .xmlrpc_test/xmlrpc_test.a8e05b.cc -o .xmlrpc_test/xmlrpc_test.a8e05b.cc.out  -pthread -lxmlrpc_client++ -lxmlrpc++ 1>>.xmlrpc_test/xmlrpc_test.a8e05b.cc.log 2>&1

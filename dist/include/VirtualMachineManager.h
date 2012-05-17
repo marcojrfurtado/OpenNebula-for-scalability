@@ -55,7 +55,8 @@ public:
         POLL,
         TIMER,
         DRIVER_CANCEL,
-        FINALIZE
+        FINALIZE,
+        SETCPU
     };
 
     /**
@@ -68,6 +69,8 @@ public:
     virtual void trigger(
         Actions action,
         int     vid);
+
+    virtual void trigger(Actions action, int _vid, void *_args);
 
     /**
      *  This functions starts the associated listener thread, and creates a 
@@ -287,6 +290,9 @@ private:
      */
     void driver_cancel_action(
         int vid);
+
+    void setcpu_action(
+        std::pair<int, int>);
 };
 
 #endif /*VIRTUAL_MACHINE_MANAGER_H*/
