@@ -142,4 +142,22 @@ public:
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
 
+
+class VirtualMachineSetCPU : public RequestManagerVirtualMachine
+{
+public:
+	VirtualMachineSetCPU():
+        RequestManagerVirtualMachine("VirtualMachineSetCPU ",
+                                     "SET CPU for a VM",
+                                     "A:sii")
+    {
+         auth_op = AuthRequest::ADMIN;
+    };
+
+    ~VirtualMachineSetCPU(){};
+
+    void request_execute(xmlrpc_c::paramList const& _paramList,
+            RequestAttributes& att);
+};
+
 #endif

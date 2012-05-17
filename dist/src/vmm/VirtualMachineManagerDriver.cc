@@ -225,6 +225,16 @@ void VirtualMachineManagerDriver::reboot (
     write(os);
 };
 
+void VirtualMachineManagerDriver::setcpu ( const int oid,
+		const string& drv_msg) const
+{
+    ostringstream os;
+
+    os << "SETCPU " << oid << " " << drv_msg << endl;
+
+    write(os);
+};
+
 /* ************************************************************************** */
 /* MAD Interface                                                              */
 /* ************************************************************************** */

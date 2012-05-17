@@ -42,7 +42,8 @@ class VirtualMachineDriver < OpenNebulaDriver
         :restore    => "RESTORE",
         :migrate    => "MIGRATE",
         :poll       => "POLL",
-        :log        => "LOG"
+        :log        => "LOG",
+        :setcpu     => "SETCPU"
     }
 
     POLL_ATTRIBUTE = {
@@ -87,6 +88,8 @@ class VirtualMachineDriver < OpenNebulaDriver
         register_action(ACTION[:restore].to_sym,    method("restore"))
         register_action(ACTION[:migrate].to_sym,    method("migrate"))
         register_action(ACTION[:poll].to_sym,       method("poll"))
+          
+        register_action(ACTION[:setcpu].to_sym,     method("setcpu"))
     end
 
     # Decodes the encoded XML driver message received from the core
@@ -149,6 +152,11 @@ class VirtualMachineDriver < OpenNebulaDriver
     def poll(id, drv_message)
         error = "Action not implemented by driver #{self.class}"
         send_message(ACTION[:poll],RESULT[:failure],id,error)
+    end
+    
+    def setcpu(id, drvmessage)
+      error = "Action not implemented by driver #{self.class}"
+      send_message(ACTION[:setcpu],RESULT[:failure],id,error)
     end
 
 private

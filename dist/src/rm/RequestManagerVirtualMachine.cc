@@ -508,3 +508,44 @@ void VirtualMachineSaveDisk::request_execute(xmlrpc_c::paramList const& paramLis
 
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
+
+
+void VirtualMachineSetCPU::request_execute(xmlrpc_c::paramList const& paramList,
+                                            RequestAttributes& att)
+{
+    Nebula&             nd = Nebula::instance();
+    DispatchManager *   dm = nd.get_dm();
+
+    VirtualMachine * vm;
+
+    int  id   = xmlrpc_c::value_int(paramList.getInt(1));
+    int  quota  = xmlrpc_c::value_int(paramList.getInt(2));
+
+    if ( vm_authorization(id,0,att,0) == false )
+    {
+        return;
+    }
+
+    if ( (vm = get_vm(id, att)) == 0 )
+    {
+        return;
+    }
+
+    if((vm->get_state()     != VirtualMachine::ACTIVE)  ||
+       (vm->get_lcm_state() != VirtualMachine::RUNNING) ||
+       (vm->hasPreviousHistory() && vm->get_previous_reason() == History::NONE))
+    {
+        failure_response(ACTION,
+                request_error("Wrong state to perform action",""),
+                att);
+
+        vm->unlock();
+        return;
+    }
+
+    dm->setcpu(vm,quota);
+
+    success_response(id, att);
+
+
+}

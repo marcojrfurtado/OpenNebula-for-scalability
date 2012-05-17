@@ -698,3 +698,28 @@ int DispatchManager::resubmit(int vid)
 
     return rc;
 }
+
+/* -------------------------------------------------------------------- */
+
+int DispatchManager::setcpu(VirtualMachine *vm, int quota) {
+    ostringstream oss;
+    int           vid;
+    Nebula&   nd = Nebula::instance();
+    VirtualMachineManager * vmm = nd.get_vmm();
+
+    if ( vm == 0 )
+    {
+        return -1;
+    }
+
+    vid = vm->get_oid();
+
+    oss << "Setting CPU period for VM " << vid << " to " << quota << "%";
+    NebulaLog::log("DiM",Log::DEBUG,oss);
+
+    vmm->trigger(VirtualMachineManager::SETCPU,vid);
+
+
+
+    return 0;
+}

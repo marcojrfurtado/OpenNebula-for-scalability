@@ -219,6 +219,9 @@ public:
     int reboot(
         int vid);
 
+    int setcpu(VirtualMachine * vm,
+    		int quota);
+
 private:
     /**
      *  Thread id for the Dispatch Manager

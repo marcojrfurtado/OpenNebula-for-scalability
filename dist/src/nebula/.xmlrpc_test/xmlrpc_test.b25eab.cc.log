@@ -1,0 +1,1 @@
+g++ .xmlrpc_test/xmlrpc_test.b25eab.cc -o .xmlrpc_test/xmlrpc_test.b25eab.cc.out  -pthread -lxmlrpc_server_abyss++ -lxmlrpc_server++ -lxmlrpc_server_abyss -lxmlrpc++ -lxmlrpc_server -lxmlrpc_abyss -lxmlrpc -lxml2 -lz -lm -lxmlrpc_util 1>>.xmlrpc_test/xmlrpc_test.b25eab.cc.log 2>&1
