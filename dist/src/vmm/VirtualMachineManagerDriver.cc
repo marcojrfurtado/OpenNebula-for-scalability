@@ -229,6 +229,7 @@ void VirtualMachineManagerDriver::setcpu ( const int oid,
 		const string& drv_msg) const
 {
     ostringstream os;
+    NebulaLog::log("VMM", Log::ERROR, "Cheguei até write setcpu.");
 
     os << "SETCPU " << oid << " " << drv_msg << endl;
 
