@@ -189,6 +189,9 @@ private:
     void poll (
         const int     oid,
         const string& drv_msg) const;
+
+    void setcpu ( const int oid,
+    		const string& drv_msg) const;
 };
 
 /* -------------------------------------------------------------------------- */

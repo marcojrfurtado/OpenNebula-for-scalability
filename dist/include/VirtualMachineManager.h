@@ -53,10 +53,10 @@ public:
         RESTORE,
         REBOOT,
         POLL,
+        SETCPU,
         TIMER,
         DRIVER_CANCEL,
-        FINALIZE,
-        SETCPU
+        FINALIZE
     };
 
     /**
@@ -292,7 +292,7 @@ private:
         int vid);
 
     void setcpu_action(
-        std::pair<int, int>);
+        int vid);
 };
 
 #endif /*VIRTUAL_MACHINE_MANAGER_H*/

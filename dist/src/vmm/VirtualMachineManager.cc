@@ -163,21 +163,21 @@ void VirtualMachineManager::trigger(Actions action, int _vid, void *_args)
         aname = ACTION_FINALIZE;
         break;
     case SETCPU:
-    	bool useArgs = true;
     	aname = "SETCPU";
     	break;
+
     default:
         delete vid;
         return;
     }
 
-    if ( ! useArgs ) {
+ /*   if ( ! useArgs ) {
     	am.trigger(aname,vid);
-    } else {
-    	int quota = new int(*arg);
-    	std::pair<int, int > action_args(vid,quota);
-    	am.trigger(aname,action_args);
-    }
+    } else {*/
+    	//int quota = new int(*arg);
+    //	std::pair<int, int > action_args(vid,quota);
+    	am.trigger(aname,vid);
+    //}
 }
 
 /* -------------------------------------------------------------------------- */
@@ -255,7 +255,7 @@ void VirtualMachineManager::do_action(const string &action, void * arg)
         MadManager::stop();
     }
     else if ( action == "SETCPU") {
-    	setcpu_action();
+    	setcpu_action(vid);
     }
     else
     {
@@ -1096,12 +1096,12 @@ error_common:
 }
 
 void VirtualMachineManager::setcpu_action(
-    std::pair<int, int> p)
+    int vid)
 {
 	   VirtualMachine *                    vm;
 	   const VirtualMachineManagerDriver * vmd;
-	   int vid = p.first;
-	   int quota = p.second;
+	//   int vid = p.first;
+	//   int quota = p.second;
 
 	    string        vm_tmpl;
 	    string *      drv_msg;
@@ -1139,7 +1139,7 @@ void VirtualMachineManager::setcpu_action(
 	         "",
 	         "",
 	         vm->to_xml(vm_tmpl));
-
+	    NebulaLog::log("VMM", Log::ERROR, "Quase lá");
 	    vmd->setcpu(vid, *drv_msg);
 
 	    delete drv_msg;

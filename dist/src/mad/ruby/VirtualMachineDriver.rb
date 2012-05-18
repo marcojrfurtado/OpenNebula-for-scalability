@@ -154,7 +154,7 @@ class VirtualMachineDriver < OpenNebulaDriver
         send_message(ACTION[:poll],RESULT[:failure],id,error)
     end
     
-    def setcpu(id, drvmessage)
+    def setcpu(id, drv_message)
       error = "Action not implemented by driver #{self.class}"
       send_message(ACTION[:setcpu],RESULT[:failure],id,error)
     end

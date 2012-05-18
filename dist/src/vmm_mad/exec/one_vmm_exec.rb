@@ -470,6 +470,12 @@ class ExecDriver < VirtualMachineDriver
 
         do_action("#{deploy_id} #{host}", id, host, ACTION[:reboot])
     end
+    
+    
+    def setcpu(id, drv_message)
+      fp =File.new("/home/opennebula/lition","w")
+      fp.close
+    end
 end
 
 ################################################################################
