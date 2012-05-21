@@ -1,4 +1,0 @@
-NAME=zoneB
-ONENAME=oneadminB
-ONEPASS=opennebulaB
-ENDPOINT=http://localhost:2637/RPC2

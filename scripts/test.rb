@@ -25,19 +25,31 @@ include OpenNebula
 require 'OpenDC'
 include OpenDC
 
+require 'CommandManager'
 
-# Connect to the PostgreSQ service
+if !(host_id=ARGV[0])
+    puts "No host informed"
+    exit -1
+end
+1
 begin
-    cl = Calibration.new(  "192.168.122.2" )
-rescue Error => e
-    puts e.message
-    puts 'Wasn\'t able to connect to the PostgreSQL inside the VM. Check Network Configurations.'
+    client = Client.new()
+rescue Exception => e
+    puts "Error: #{e}"
     exit -1
 end
 
+# Retrieve hostname
+host  =  OpenNebula::Host.new_with_id(host_id, client)
+exit -1 if OpenNebula.is_error?(host)
+host.info
+host_name = host.name
 
-result_set = cl.process('./queries/aggregate_seq_scan.sql')
 
-puts result_set.inspect
+puts host_name
+rc = RemotesCommand.run("/bin/ls -lh",host_name,"~")
 
-#cl.get_costs('./queries/aggregate_seq_scan.sql')
+puts rc.stdout
+
+
+exit 0

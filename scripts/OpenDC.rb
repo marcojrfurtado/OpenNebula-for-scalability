@@ -23,8 +23,24 @@ end
 require 'pg'
 
 require 'OpenDC/Calibration'
+require 'OpenDC/CPULimitation'
+require 'OpenDC/LinearRegression'
+
+require 'CommandManager'
+
+require 'OpenNebula'
+include OpenNebula
 
 module OpenDC
+
+
+    ONE_LOCATION=ENV["ONE_LOCATION"]
+
+    if !ONE_LOCATION
+        OPENDC_LOCATION = "/var/lib/ruby/OpenDC"
+    else
+        OPENDC_LOCATION = ONE_LOCATION + "/lib/ruby/OpenDC"
+    end
 
     # The Error Class represents a generic error in the OpenDCLibrary
     # library. It contains a readable representation of the error.
@@ -52,7 +68,7 @@ module OpenDC
     # In OpenDC, only inherent data is filtered.
     class QueryResult <
 
-        Struct::new(:rows, :actual_total_cost)
+        Struct::new(:rows, :actual_total_cost, :nominal_total_cost, :pages)
     end
 
     # Returns true if the object returned by a method of the OpenDC
