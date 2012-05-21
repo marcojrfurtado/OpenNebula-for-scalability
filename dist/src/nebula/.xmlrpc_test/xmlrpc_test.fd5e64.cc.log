@@ -1,1 +1,0 @@
-g++ .xmlrpc_test/xmlrpc_test.fd5e64.cc -o .xmlrpc_test/xmlrpc_test.fd5e64.cc.out  -pthread -lxmlrpc_server_abyss++ -lxmlrpc_server++ -lxmlrpc_server_abyss -lxmlrpc++ -lxmlrpc_server -lxmlrpc_abyss -lxmlrpc -lxml2 -lz -lm -lxmlrpc_util 1>>.xmlrpc_test/xmlrpc_test.fd5e64.cc.log 2>&1

@@ -6,8 +6,8 @@
 
 ONE_LOCATION=ENV["ONE_LOCATION"]
 
-DEPLOY_TIMEOUT=15
-DEPLOY_CHECK=4
+DEPLOY_TIMEOUT=DB_TIMEOUT=15
+DEPLOY_CHECK=DB_CHECK=4
 
 if !ONE_LOCATION
     RUBY_LIB_LOCATION="/usr/lib/one/ruby"
@@ -132,17 +132,68 @@ end
 
 # Get this VM's IP
 
-vm_ip = vm.retrieve_elements("/VM/TEMPLATE/NIC/IP")
+vm_ip = vm.retrieve_elements("/VM/TEMPLATE/NIC/IP").first
 
 
 # Connect to the PostgreSQ service
-begin
-    cl = Calibration.new( :host => vm_ip )
-rescue Error => e
-    puts e.message
-    puts 'Wasn\'t able to connect to the PostgreSQL inside the VM. Check Network COnfigurations.'
-    exit -1
+sleep DB_TIMEOUT
+att = 1
+cl = nil
+puts vm_ip
+while ( cl.nil? )
+    begin
+        cl = Calibration.new( vm_ip )
+    rescue Error => e
+        if ( att < DB_CHECK)
+            att+=1
+        else
+            puts e.message
+            puts 'Wasn\'t able to connect to the PostgreSQL inside the VM after #{att} attempts. Check Network Configurations.'
+            exit -1
+        end
+    end
+    sleep DB_TIMEOUT
 end
+
+# Start executing queries at different resource levels
+
+
+ratio = 0.1
+x = Array.new
+y = Array.new
+
+while ratio < 1
+    begin
+        OpenDC::CPULimitation.set_hardlimit(vm,host,ratio)
+    rescue Error => e
+        puts e.message
+        exit -1
+    end
+
+    sleep 0.5
+    result_set = cl.process('./queries/aggregate_seq_scan.sql')
+
+    agg = result_set.first
+    seq = result_set.second
+
+    # The second result constains the SEQ_SCAN, in which the cost is expressed as "num_pages + cpu_tuple_cost * rows"
+    # The first contains the AGGREGATE, as the page scans has already been calculated in the SEQ_SCAN, we express this aggregate as follows:
+    # "cpu_operator_cost * num_rows - SEQ_SCAN"
+    #
+    # We collect all the points and perform a linear regression.
+    #
+
+    cpu_operator_cost = (agg.actual_total_cost - seq.actual_total_cost)/agg.rows
+
+    x << ratio
+    y << cpu_operator_cost
+
+    puts "#{ratio} #{cpu_operator_cost}"
+
+    ratio+=0.1
+end
+
+#lr = OpenDC::LinearRegression.new(x,y)
 
 
 
