@@ -6,7 +6,8 @@
 
 ONE_LOCATION=ENV["ONE_LOCATION"]
 
-DEPLOY_TIMEOUT=DB_TIMEOUT=15
+DEPLOY_TIMEOUT=15
+DB_TIMEOUT=10
 DEPLOY_CHECK=DB_CHECK=4
 
 if !ONE_LOCATION
@@ -156,7 +157,24 @@ while ( cl.nil? )
 end
 
 # Start executing queries at different resource levels
+#
+# First, let's create a file to store these results to be used later.
 
+
+dest_dir = $VMDIR + "/" + "calibration_results" + host.id.to_s
+
+unless FileTest::directory? dest_dir
+    begin
+        Dir::mkdir(dest_dir)
+    rescue Exception => e
+        puts e.message
+        puts "Was not able to create the calibration results directory."
+        exit -1
+    end
+end
+
+fp = File.new(dest_dir+"cpu_operator_cost.dat","w")
+fp.truncate(0) if !fp.zero?()
 
 ratio = 0.1
 x = Array.new
@@ -188,14 +206,12 @@ while ratio < 1
     x << ratio
     y << cpu_operator_cost
 
-    puts "#{ratio} #{cpu_operator_cost}"
+    fp.puts "#{ratio} #{cpu_operator_cost}"
 
     ratio+=0.1
 end
 
 #lr = OpenDC::LinearRegression.new(x,y)
-
-
 
 
 
