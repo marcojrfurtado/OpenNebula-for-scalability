@@ -1,0 +1,37 @@
+#!/usr/bin/ruby
+
+
+
+ONE_LOCATION=ENV["ONE_LOCATION"]
+
+
+if !ONE_LOCATION
+    RUBY_LIB_LOCATION="/usr/lib/one/ruby"
+    VMDIR="/var/lib/one"
+else
+    RUBY_LIB_LOCATION=ONE_LOCATION+"/lib/ruby"
+    VMDIR=ONE_LOCATION+"/var"
+end
+
+$: << RUBY_LIB_LOCATION
+
+require 'rubygems'
+require 'daemons'
+
+require 'OpenNebula'
+include OpenNebula
+
+require 'OpenDC'
+include OpenDC
+
+if (!vm_id=ARGV[0])
+    puts e.message
+    puts "No VM informed."
+    exit -1
+end
+
+
+s = UNIXSocket.new("/tmp/config_search.sock")
+s.puts vm_id
+
+
