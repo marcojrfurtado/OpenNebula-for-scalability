@@ -1,0 +1,113 @@
+#!/usr/bin/ruby
+
+
+
+ONE_LOCATION=ENV["ONE_LOCATION"]
+
+DEPLOY_TIMEOUT=15
+DB_TIMEOUT=10
+DEPLOY_CHECK=DB_CHECK=4
+
+if !ONE_LOCATION
+    RUBY_LIB_LOCATION="/usr/lib/one/ruby"
+    VMDIR="/var/lib/one"
+else
+    RUBY_LIB_LOCATION=ONE_LOCATION+"/lib/ruby"
+    VMDIR=ONE_LOCATION+"/var"
+end
+
+$: << RUBY_LIB_LOCATION
+
+require 'OpenNebula'
+include OpenNebula
+
+require 'OpenDC'
+include OpenDC
+
+require 'rubygems'
+require 'daemons'
+
+require 'socket'
+
+SOCK_LOCATION='/tmp/config_search.sock'
+
+
+
+# Pass options to this daemon
+options = {
+    :mutiple => false,
+    :ontop => false,
+    :mode => :load,
+    :stop_proc => Proc.new do
+        $s.close if $s
+        File.unlink(SOCK_LOCATION)
+    end
+}
+
+
+
+# Run the daemon
+Daemons.run_proc('config_search', options) do
+
+    # Array used to store threads correspondig to a host
+    host_threads = Array.new
+
+
+    File.unlink(SOCK_LOCATION) if File.file?(SOCK_LOCATION)
+
+    $s = UNIXServer.open(SOCK_LOCATION)
+
+    # Client used to retrieve pool elements
+    begin
+        client = Client.new()
+    rescue Exception => e
+        puts "Error: #{e}"
+        exit -1
+    end
+
+    loop {
+        unix_client = $s.accept
+        vm_id = unix_client.readline.to_i
+
+        OpenDC.log("VM with id #{vm_id} was added to the greedy search.")
+        puts vm_id
+
+        #Retrieve VM
+        vm  =  OpenNebula::VirtualMachine.new_with_id(vm_id, client)
+        if OpenNebula.is_error?(vm)
+            OpenDC.log_error("Error retrieving VM #{vm_id} from pool.")
+            next
+        end
+        vm.info
+
+  #      if ( OpenNebula::VirtualMachine::VM_STATE[vm.state] !=  'ACTIVE' \
+  #          or OpenNebula::VirtualMachine::LCM_STATE[vm.lcm_state] != 'RUNNING' )
+  #          OpenDC.log_error("VM #{vm_id} is in a wrong state.")
+  #          next
+  #      end
+
+        # Get host ID
+        hid = vm['/VM/HISTORY_RECORDS/HISTORY[last()]/HID']
+
+        host = OpenNebula::Host.new_with_id(hid, client)
+        if OpenNebula.is_error?(host)
+            OpenDC.log_error("Error retrieving host #{hid} from pool.")
+            next
+        end
+        host.info
+
+        running_vms = host['HOST_SHARE/RUNNING_VMS']
+
+        if ( running_vms < 2)
+            OpenDC.log "Less than two VMs are running on host #{hid}. No need for \
+            an advisor."
+            next
+        end
+
+
+
+
+    }
+end
+
+
