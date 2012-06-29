@@ -1,0 +1,47 @@
+This is BibTeX, Version 0.99c (Web2C 7.5.6)
+The top-level auxiliary file: dissertacao.aux
+The style file: plain.bst
+Database file #1: tg.bib
+Warning--empty institution in Armbrust09abovethe
+You've used 9 entries,
+            2118 wiz_defined-function locations,
+            562 strings with 6230 characters,
+and the built_in function-call counts, 4079 in all, are:
+= -- 403
+> -- 226
+< -- 5
++ -- 89
+- -- 80
+* -- 300
+:= -- 657
+add.period$ -- 31
+call.type$ -- 9
+change.case$ -- 69
+chr.to.int$ -- 0
+cite$ -- 10
+duplicate$ -- 153
+empty$ -- 280
+format.name$ -- 80
+if$ -- 876
+int.to.chr$ -- 0
+int.to.str$ -- 9
+missing$ -- 7
+newline$ -- 49
+num.names$ -- 18
+pop$ -- 67
+preamble$ -- 1
+purify$ -- 58
+quote$ -- 0
+skip$ -- 122
+stack$ -- 0
+substring$ -- 230
+swap$ -- 54
+text.length$ -- 5
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 36
+warning$ -- 1
+while$ -- 33
+width$ -- 10
+write$ -- 111
+(There was 1 warning)

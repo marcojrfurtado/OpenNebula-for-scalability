@@ -1,0 +1,16 @@
+\contentsline {chapter}{\MakeUppercase {Abstract}}{ii}
+\contentsline {chapter}{\numberline {1}\MakeUppercase {\textbf {Introduction}}}{1}
+\contentsline {subsection}{\numberline {1.0.1}Context}{2}
+\contentsline {subsection}{\numberline {1.0.2}Objective}{3}
+\contentsline {chapter}{\numberline {2}\MakeUppercase {\textbf {Related Work}}}{5}
+\contentsline {chapter}{\numberline {3}\MakeUppercase {\textbf {Virtualization design advisor}}}{7}
+\contentsline {section}{\numberline {3.1}Problem definition}{7}
+\contentsline {section}{\numberline {3.2}Architecture}{9}
+\contentsline {subsection}{\numberline {3.2.1}Cost estimation and initial allocation}{9}
+\contentsline {subsection}{\numberline {3.2.2}Online refinement}{14}
+\contentsline {subsection}{\numberline {3.2.3}Dynamic configuration management}{16}
+\contentsline {chapter}{\numberline {4}\MakeUppercase {\textbf {Cloud infrastructure management}}}{18}
+\contentsline {chapter}{\numberline {5}\MakeUppercase {\textbf {Implementation}}}{21}
+\contentsline {chapter}{\numberline {6}\MakeUppercase {\textbf {Proposed implementation}}}{22}
+\contentsline {chapter}{\numberline {7}\MakeUppercase {\textbf {Final considerations}}}{25}
+\contentsline {chapter}{\MakeUppercase {References}}{27}
