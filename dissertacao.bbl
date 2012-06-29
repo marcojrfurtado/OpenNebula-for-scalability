@@ -1,0 +1,64 @@
+\begin{thebibliography}{1}
+
+\bibitem{Armbrust09abovethe}
+Michael Armbrust, Armando Fox, Rean Griffith, Anthony~D. Joseph, Randy~H. Katz,
+  Andrew Konwinski, Gunho Lee, David~A. Patterson, Ariel Rabkin, and Matei
+  Zaharia.
+\newblock Above the clouds: A berkeley view of cloud computing.
+\newblock Technical report, 2009.
+
+\bibitem{Curino:2011:WDM:1989323.1989357}
+Carlo Curino, Evan~P.C. Jones, Samuel Madden, and Hari Balakrishnan.
+\newblock Workload-aware database monitoring and consolidation.
+\newblock In {\em Proceedings of the 2011 international conference on
+  Management of data}, SIGMOD '11, pages 313--324, New York, NY, USA, 2011.
+  ACM.
+
+\bibitem{springerlink:10.1007/s13222-010-0033-3}
+Donald Kossmann and Tim Kraska.
+\newblock Data management in the cloud: Promises, state-of-the-art, and open
+  questions.
+\newblock {\em Datenbank-Spektrum}, 10:121--129, 2010.
+\newblock 10.1007/s13222-010-0033-3.
+
+\bibitem{4498282}
+U.F. Minhas, J.~Yadav, A.~Aboulnaga, and K.~Salem.
+\newblock Database systems on virtual machines: How much do you lose?
+\newblock In {\em Data Engineering Workshop, 2008. ICDEW 2008. IEEE 24th
+  International Conference on}, pages 35 --41, april 2008.
+
+\bibitem{4401021}
+A.A. Soror, A.~Aboulnaga, and K.~Salem.
+\newblock Database virtualization: A new frontier for database tuning and
+  physical design.
+\newblock In {\em Data Engineering Workshop, 2007 IEEE 23rd International
+  Conference on}, pages 388 --394, april 2007.
+
+\bibitem{Soror:2008:AVM:1376616.1376711}
+Ahmed~A. Soror, Umar~Farooq Minhas, Ashraf Aboulnaga, Kenneth Salem, Peter
+  Kokosielis, and Sunil Kamath.
+\newblock Automatic virtual machine configuration for database workloads.
+\newblock In {\em Proceedings of the 2008 ACM SIGMOD international conference
+  on Management of data}, SIGMOD '08, pages 953--966, New York, NY, USA, 2008.
+  ACM.
+
+\bibitem{5233608}
+B.~Sotomayor, R.S. Montero, I.M. Llorente, and I.~Foster.
+\newblock Virtual infrastructure management in private and hybrid clouds.
+\newblock {\em Internet Computing, IEEE}, 13(5):14 --22, sept.-oct. 2009.
+
+\bibitem{Soundararajan:2009:DRA:1525908.1525914}
+Gokul Soundararajan, Daniel Lupei, Saeed Ghanbari, Adrian~Daniel Popescu, Jin
+  Chen, and Cristiana Amza.
+\newblock Dynamic resource allocation for database servers running on virtual
+  storage.
+\newblock In {\em Proccedings of the 7th conference on File and storage
+  technologies}, FAST '09, pages 71--84, Berkeley, CA, USA, 2009. USENIX
+  Association.
+
+\bibitem{instance1290}
+Nitin Vengurlekar.
+\newblock {Database Consolidation onto Private Clouds}.
+\newblock Technical report, Oracle Corporation, February 2011.
+
+\end{thebibliography}

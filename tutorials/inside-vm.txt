@@ -18,3 +18,14 @@ fonte:http://aaronwalrath.wordpress.com/2011/02/26/cloned-red-hatcentosscientifi
 copy vmcontext for Debian and do the following:
 
 Copy it in /etc/init.d/ and install with "update-rc.d vmcontext.sh start 01 S"
+
+In order to use hdparm, you must add the postgres user to the sudoers file, follow these steps:
+1 - Install sudo
+2 - Edit /etc/sudoers, adding the line '%sudo ALL:NOPASSWD ALL'
+3 - Add Postgres to the sudo groups with 'usermod -a -G sudo postgres'
+
+
+Add postgres to the ssl-cert group
+
+
+The calibration VM must have hdparm installed.

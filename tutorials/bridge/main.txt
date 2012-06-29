@@ -1,0 +1,21 @@
+Disable NetworkManager:
+systemctl stop NetworkManager.service
+systemctl disable NetworkManager.service
+
+Enable network:
+systemctl enable NetworkManager.service
+
+
+Change interface name to eth0 by:
+1. adding biosdevname=0 to the kernel line at /boot/grub2/grub.cfg
+2. remove /etc/udev/rules.d/70-persistent-rules
+
+Add the two files contained in this folder to /etc/sysconfig/network-scripts:
+ifcfg-eth0
+ifcfg-br0
+
+
+Remove any ifcgf-AutoEthernet*
+
+
+Reboot the machine.
