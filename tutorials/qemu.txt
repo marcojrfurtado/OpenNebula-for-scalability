@@ -36,3 +36,8 @@ Nota: Estudar uso do Qemu-KVM com cache de imagens:
 		       [,cache=writethrough|writeback|none|unsafe][,format=f]
 
 http://doc.opensuse.org/documentation/html/openSUSE/opensuse-kvm/cha.libvirt.connect.html
+
+
+sudo virt-install -n debian-osdl -r 512 --vcpus=2 --os-variant=debiansqueeze  -v -l http://ftp.br.debian.org/debian/dists/squeeze/main/installer-amd64/ -w bridge=virbr0 --graphics vnc --disk=/vm/debian-osdl.img,size=4
+http://docs.evergreen-ils.org/2.0/draft/html/upgrading_Postgresqlto9.0.html
+
