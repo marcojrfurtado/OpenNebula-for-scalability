@@ -11,6 +11,7 @@
 \usepackage{multirow}
 \usepackage{algorithm}
 \usepackage{algorithmic}
+\usepackage{listings}
 
 
 \usepackage{eqparbox}
@@ -71,7 +72,7 @@
 
 \tableofcontents
 
-%\listoffigures         % se houver mais do que 3 figuras
+\listoffigures         % se houver mais do que 3 figuras
 %\addcontentsline{toc}{chapter}{\MakeUppercase{Lista de Figuras}}
 %\newpage
 
@@ -93,9 +94,11 @@
 \input{./text/capitulo2.tex}
 \input{./text/capitulo3.tex}
 \input{./text/capitulo4.tex}
+\input{./text/capitulo4_1.tex}
 \input{./text/capitulo5.tex}
 %\input{capitulo6.tex}
-%\input{anexo1.tex}     % se houver anexo
+\input{./text/anexos.tex}     % se houver anexo
+
 
 
 
@@ -114,6 +117,7 @@
 % }
 %
 \addcontentsline{toc}{chapter}{\MakeUppercase{References}}
+
 
 \singlespacing
 \makecapadissertacao

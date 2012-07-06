@@ -1,0 +1,61 @@
+\chapter{Appendices}
+
+\section{Greedy search algorithm}
+
+\label{sec:greedy}
+
+\begin{algorithm}[H]
+ \begin{algorithmic}
+    \FOR{$i = 1 \to N$} 
+	\STATE $R_{i} \gets [\frac{1}{N},..,\frac{1}{N}]$
+    \ENDFOR
+
+   \STATE $done \gets \FALSE$
+   \REPEAT
+	\STATE $MaxDiff \gets 0$
+	\FOR{$j = 1 \to M$} 
+	    \STATE $MaxGain_{j} \gets 0$
+	    \STATE $MaxLoss_{j} \gets \infty$
+	    \FOR{$i = 1 \to N$}
+		 \STATE $C' \gets G_{i} * Cost(W_{i},[r_{i1},  r_{ij} + \delta, r_{iM}])$ \COMMENT{Maximize gain}
+		 \IF{ $C_{i} - C' > MaxGain_{j}$}
+		     \STATE $MaxGain_{j} \gets C_{i} - C'$
+		     \STATE $i_{gain} \gets i$
+		 \ENDIF
+		 \STATE $C' \gets G_{i} * Cost(W_{i},[r_{i1},  r_{ij} - \delta, r_{iM}])$ \COMMENT{Minimize loss}
+		 \IF{ $( C' - C_{i} < MaxLoss_{j}) \wedge ( C' satisfies L_{i})$}
+		     \STATE $MaxLoss_{j} \gets C' - C_{i}$
+		     \STATE $i_{loss} \gets i$
+		 \ENDIF
+	    \ENDFOR
+	    \STATE \COMMENT{Maximum benefit from adjusting this resource}
+	    \IF{ $(i_{gain} \ne i_{lose}) \wedge ( MaxGain_{j} - MinLoss_{j} > MaxDiff)$ }
+		\STATE $MaxDiff \gets MaxGain_{j} - MinLoss_{j}$
+		\STATE $i_{maxgain} \gets i_{gain}$
+		\STATE $i_{maxloss} \gets i_{loss}$
+		\STATE $j_{max} \gets j$
+	    \ENDIF
+	\ENDFOR
+	\IF{$MaxDiff > 0$}
+	    \STATE $r_{i_{maxgain}j_{max}} \gets r_{i_{gain}j_{max}} + \delta $
+	    \STATE $r_{i_{maxloss}j_{max}} \gets r_{i_{loss}j_{max}} - \delta $
+	\ELSE
+	    \STATE $done \gets \TRUE$
+	\ENDIF
+   \UNTIL{done}
+
+ \end{algorithmic}
+  \caption{Greedy search algorithm}
+  %\label{alg:greedy}
+\end{algorithm}
+
+
+\section{Calibration queries}
+
+\subsection{cpu\_tuple\_cost and cpu\_operator\_cost}
+\label{app:cal1}
+\lstinputlisting{./queries/aggregate-seq-scan.sql}
+
+\subsection{cpu\_index\_tuple\_cost}
+\label{app:cal2}
+\lstinputlisting{./queries/index-scan.sql}

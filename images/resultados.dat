@@ -1,0 +1,6 @@
+# x: omp14 cuda14 omp32 cuda 32
+# y: uy, zi, lu, mu
+#linha zero, ignorar
+   0	0	0	0	0
+	1504	702	25,47	19,63
+	1603	1753	449,85	186,02

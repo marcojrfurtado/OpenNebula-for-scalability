@@ -1,9 +1,10 @@
-\chapter{\textbf{Virtualization design advisor}}
+%\chapter{\textbf{Virtualization design advisor}}
+\chapter{Virtualization design advisor}
 
-\label{Virtualization design advisor}
+\label{chap:virtualization}
 
 
-In \cite{Soror:2008:AVM:1376616.1376711}, the author considers a typical resource consolidation scenario, in which several DBMS instances, each one of them running in a separate VM, share a common pool of physical resources. As discussed earlier, this paper addresses the problem of optimizing the performance of these instances by controlling some configuration parameters of the VM instances. These parameters determine how the resources should be indirectly allocated to each DBMS instance. This scenario is illustrated in ~\ref{fig:scenario}.
+In \cite{Soror:2008:AVM:1376616.1376711}, the author considers a typical resource consolidation scenario, in which several DBMS instances, each one of them running in a separate VM, share a common pool of physical resources. As discussed earlier, this paper addresses the problem of optimizing the performance of these instances by controlling some configuration parameters of the VM guests. These parameters determine how the resources should be indirectly allocated to each DBMS instance. This scenario is illustrated in ~\ref{fig:scenario}.
 
 
 \begin{figure}[ht]
@@ -44,7 +45,7 @@ Other QoS requirement introduced involves the ability to specify relative priori
 The process of  determining the allocation of resources to each VM is neither immediate, nor static. The proposed advisor follows a sequence of steps. Initially, it makes a resource allocation based on the workload descriptions and performance goals, which is performed offline ( i.e. the VMs are not running yet ). Then all of the subsequent steps are performed online. It adjusts its recommendations based on the difference between expected and actual workload costs to correct for any cost estimation errors made during the initial phase. At the same time, it uses continuing monitoring information to dynamically detect changes in the workloads. This last step is important because a workload cannot be considered static, its resource needs may change during execution. In both of these online steps, the resource allocation step may occasionally be performed again with updated cost models. This approach prevents the advisor from allocating resources to DBMS instances that will obtain little benefit from them. These 
 resources need to be given to the workloads that need them the most.
 
-Since the advisor does not consist of one single task, it makes sense to organize the flow of its tasks. An overview of this advisor in a modular way is given in ~\ref{fig:architecture}. This paper intends to give a brief explanation of each task.
+Since the advisor does not consist of one single task, it makes sense to organize the flow of its tasks. An overview of this advisor in a modular way is given in figure ~\ref{fig:architecture}. This paper intends to give a brief explanation of each task.
 
 
 \begin{figure}[ht]
@@ -55,6 +56,7 @@ Since the advisor does not consist of one single task, it makes sense to organiz
 \end{figure} 
 
 \subsection{Cost estimation and initial allocation}
+\label{subsec:cost}
 
 Given a workload $W_{i}$, the cost estimator will predict $Cost(W_{i},R_{i})$. The strategy used to implement this module is to leverage the cost models built into database systems for query optimization. The query optimizer cost model can be described as $Cost_{DB}(W_{i},P_{i},D_{i})$, where $W_{i}$ is a SQL workload, $P_{i} = [p_{i1},..,p_{iL}]$ is a vector of parameters that are used to list both the available computing resources and DBMS configuration parameters relevant to the cost model, and $D_{i}$ is  the database instance. 
 
@@ -62,7 +64,7 @@ The author identifies two problems in using only query optimizer cost models. Th
 
 The second problem is that the query optimizer cost estimates depends on $P_{i}$, while the virtualization design advisor is given a candidate resource allocation $R_{i}$. The mapping of these two parameters is achieved through a calibration step. This step determines a set of DBMS cost model configuration parameters according to the different possible candidate resource allocations. It is supposed to be performed per DBMS on the physical machine before running the virtualization design advisor. Once the appropriate configuration parameters $P_{i}$ are determined for every possible $R_{i}$, the DBMS cost model is used to generate $Cost_{DB}$.
 
-The calibration step is performed on  \textit{descritive parameters}, which are used to characterize the execution environment. The approach to the \textit{prescritive parameters}, which control the configuration of the DBMS itself, is to leave it for user definition. For instance, in ~\ref{table:descritive} it is shown some descritive parameters used in PostgreSQL, while in ~\ref{table:prescritive} it is shown the prescritive ones. 
+The calibration step is performed on  \textit{descriptive parameters}, which are used to characterize the execution environment. The approach to the \textit{prescriptive parameters}, which control the configuration of the DBMS itself, is to leave it for user definition. For instance, in ~\ref{table:descritive} it is shown some descriptive parameters used in PostgreSQL, while in ~\ref{table:prescritive} it is shown some prescriptive ones. 
 
 
 \begin{table}[ht]
@@ -100,94 +102,53 @@ The calibration step follows a basic methodology for each parameter $p_{ij} \in 
   \item (2) Choose a resource allocation $R_{i}$, instantiate $D$, and run $Q$ under that resource allocation, and measure the execution time $T_{Q}$; \\
 %  \item (3) This step refers to the renormalization of the $Cost_{DB}$ provided by the DBMS. As mentioned earlier in this section, we are not going into the details of this step; \\
   \item (3) Perform the renormalization of $Cost_{DB}$ provided by the DBMS, in order to transform it to a common notion of cost; \\
-  \item (4) Repeat the two preceding steps for a variety of $R_{i}$ allocations. $r_{ij} \in R_{i}$ only needs to be varied if $p_{ij}$ describes that resource. For instance, query optimizer parameters that describe CPU, I/O and memory are independent of each other and can be calibrated independently. This shall avoid unnecessary calculations; \\
+  \item (4) Repeat the two preceding steps for a variety of $R_{i}$ allocations. $r_{ij} \in R_{i}$ only needs to be varied if $p_{ij}$ describes that resource. For instance, query optimizer parameters that describe CPU, I/O and memory are independent of each other and can be calibrated independently. This should avoid unnecessary calculations; \\
   \item (5) Perform regression analysis on the set of $(R_{i},p_{ij})$ value pairs to determine a calibration function $Cal_{ij}$ that maps resource allocations to $p_{ij}$ values. \\
 \end{itemize}
 
 During the described methodology, calibration queries should be carefully chosen. They need to be dependent only on the parameter that is being calibrated. If it is not possible to isolate one parameter, a system of $k$ equations is solved to determine the values for the $k$ parameters.
 
-After the calibration is performed, the advisor is ready to be run. First, it needs to provide an initial configuration. In \cite{Soror:2008:AVM:1376616.1376711}, it was proposed a greedy algorithm to search for an initial configuration, as seen in ~\ref{alg:greedy}.
+After the calibration is performed, the advisor is ready to be run. First, it needs to provide an initial configuration. In \cite{Soror:2008:AVM:1376616.1376711}, it was proposed a greedy algorithm to search for an initial configuration, as seen in algorithm presented in section ~\ref{sec:greedy}.
 
-\begin{algorithm}[H]
- \begin{algorithmic}
-    \FOR{$i = 1 \to N$} 
-	\STATE $R_{i} \gets [\frac{1}{N},..,\frac{1}{N}]$
-    \ENDFOR
+% Where alg 1 used to stay
 
-   \STATE $done \gets \FALSE$
-   \REPEAT
-	\STATE $MaxDiff \gets 0$
-	\FOR{$j = 1 \to M$} 
-	    \STATE $MaxGain_{j} \gets 0$
-	    \STATE $MaxLoss_{j} \gets \infty$
-	    \FOR{$i = 1 \to N$}
-		 \STATE $C' \gets G_{i} * Cost(W_{i},[r_{i1},  r_{ij} + \delta, r_{iM}])$ \COMMENT{Maximize gain}
-		 \IF{ $C_{i} - C' > MaxGain_{j}$}
-		     \STATE $MaxGain_{j} \gets C_{i} - C'$
-		     \STATE $i_{gain} \gets i$
-		 \ENDIF
-		 \STATE $C' \gets G_{i} * Cost(W_{i},[r_{i1},  r_{ij} - \delta, r_{iM}])$ \COMMENT{Minimize loss}
-		 \IF{ $( C' - C_{i} < MaxLoss_{j}) \wedge ( C' satisfies L_{i})$}
-		     \STATE $MaxLoss_{j} \gets C' - C_{i}$
-		     \STATE $i_{loss} \gets i$
-		 \ENDIF
-	    \ENDFOR
-	    \STATE \COMMENT{Maximum benefit from adjusting this resource}
-	    \IF{ $(i_{gain} \ne i_{lose}) \wedge ( MaxGain_{j} - MinLoss_{j} > MaxDiff)$ }
-		\STATE $MaxDiff \gets MaxGain_{j} - MinLoss_{j}$
-		\STATE $i_{maxgain} \gets i_{gain}$
-		\STATE $i_{maxloss} \gets i_{loss}$
-		\STATE $j_{max} \gets j$
-	    \ENDIF
-	\ENDFOR
-	\IF{$MaxDiff > 0$}
-	    \STATE $r_{i_{maxgain}j_{max}} \gets r_{i_{gain}j_{max}} + \delta $
-	    \STATE $r_{i_{maxloss}j_{max}} \gets r_{i_{loss}j_{max}} - \delta $
-	\ELSE
-	    \STATE $done \gets \TRUE$
-	\ENDIF
-   \UNTIL{done}
-
- \end{algorithmic}
-  \caption{Greedy search algorithm}
-  \label{alg:greedy}
-\end{algorithm}
-The greedy search algorithm presented initially assigns $\frac{1}{N}$ share of each resource to each one of the $N$ workloads. Then it iteratively considers shifting an amount $\delta$ of resources (e.g. $\delta = 5\%$) from one workload to another. It analyses which workload benefits more from gaining that resource and also which loses less. Based on this, it tries to obtain the maximum benefit from adjusting this resource, and it repeats it for every other one. These adjusts are performed until no more optimizations are possible, condition limited by the \textit{REPEAT} loop . It's also important to notice that this algorithm takes into consideration the QoS parameters discussed earlier in this paper, $L_{i}$ and $G_{i}$.
+The greedy search algorithm presented initially assigns a $\frac{1}{N}$ share of each resource to each one of the $N$ workloads. Then it iteratively considers shifting an amount $\delta$ of resources (e.g. $\delta = 5\%$) from one workload to another. It analyses which workload benefits more from gaining that resource and also which loses less. Based on this, it tries to obtain the maximum benefit from adjusting this resource, and it repeats it for every other one. These adjusts are performed until no more optimizations are possible, condition limited by the \textit{REPEAT} loop . It's also important to notice that this algorithm takes into consideration the QoS parameters discussed earlier in this paper, $L_{i}$ and $G_{i}$.
 
 From experimental results, the creator of this algorithm observed that the greedy search is very often optimal and always within $5\%$ of the optimal allocation. This result is a good indicative for the algorithm, as it tells us that it hardly gets stuck in local minimums.
 
 
 
 \subsection{Online refinement}
+\label{subsec:ref}
 
-The initial allocation is based on the calibrated query optimizer cost model, as described earlier. This enables the advisor to make recommendations based on an informed cost model. However, this model may have inaccuracies that lead to sub-optimal recommendations. The  \textit{online refinement} is based on the observation of the actual times of different workloads running in different VMs. It uses these observations to refine resource allocation recommendations. Then the advisor is rerun with the new cost models, so  we can obtain an improved resource allocation for different workloads. These optimizations are performed until the allocations stabilize (i.e. the new recommendation is equal to the last one ). It's important to notice that the goal of the \textit{online refinement} is not to deal with dynamic changes in the workload, which are dealt by another module, but to correct cost models. Thus, it's assumed that the workload is not going to change during this process. 
+The initial allocation is based on the calibrated query optimizer cost model, as described earlier. This enables the advisor to make recommendations based on an informed cost model. However, this model may have inaccuracies that lead to sub-optimal recommendations. The  \textit{online refinement} is based on the observation of the actual times of execution for a workload. It uses these observations to refine resource allocation recommendations. Then the advisor is rerun with the new cost models, so  we can obtain an improved resource allocation for different workloads. These optimizations are performed until the allocations stabilize (i.e. the new recommendation is equal to the last one ). It's important to notice that the goal of the \textit{online refinement} is not to deal with dynamic changes in the workload, which are dealt by another module, but to correct cost models. Thus, it's assumed that the workload is not going to change during this process. 
 
 In order to optimize the recommendations, it is necessary to identify the cost model behaviour. The author identifies two types of models. The first is the \textit{linear model}, which can describe, among other resources, the allocation of CPU. For this resource, workload completion times are linear in the inverse of the resource allocation level. Therefore, the cost model in this case can be represented by
 \[
  Cost(W_{i}, [r_{i}]) = \frac{\alpha_{i}}{r_{i}} +\beta_{i}.
 \]
 
-The values $\alpha_{i}$ and $\beta_{i}$ are obtained through a linear regression. This regression is performed on multiple points represented by estimated costs for different $r_{i}$ values used during the initial allocation phase. This cost is adjusted by two parameters, $Est_{i}$ and $Act_{i}$, they represent the estimated cost of workload and the runtime cost, respectively. When the cost is underestimated, these parameters are used to increase the slope of our cost equation. From another standpoint, when this value is overestimated, we need to decrease the slope. This is achieved by
+The values $\alpha_{i}$ and $\beta_{i}$ are obtained through a linear regression. This regression is performed on multiple points that represent estimated costs for different $r_{i}$ values used during the initial allocation phase. This cost is adjusted by two parameters, $Est_{i}$ and $Act_{i}$. They represent the estimated cost for workload $W_{i}$ and the runtime cost, respectively. When the cost is underestimated, these parameters are used to increase the slope of our cost equation. From another standpoint, when this value is overestimated, we need to decrease the slope. This is achieved by refining the cost through the equation
 \[
-  Cost(W_{i}, [r_{i}]) = \frac{Act_{i}}{Est_{i}} * \frac{\alpha_{i}}{r_{i}} + \frac{Act_{i}}{Est_{i}} * \beta_{i}.
+  Cost'(W_{i}, [r_{i}]) = \frac{Act_{i}}{Est_{i}} * \frac{\alpha_{i}}{r_{i}} + \frac{Act_{i}}{Est_{i}} * \beta_{i}.
 \]
 
 However, not all resources are linear. The second type of cost model identified is the \textit{piecewise-linear}, which describes, among others, the allocation of memory. Increasing this resource does not consistently result in performance gain. The magnitude and the rate of improvement change according to the query execution plan. The cost equation is similar to the linear cost model, and it is given by
 \[
-  Cost(W_{i}, [r_{i}]) = \frac{Act_{i}}{Est_{i}} * \frac{\alpha_{ij}}{r_{i}} + \frac{Act_{i}}{Est_{i}} * \beta_{ij}, r_{i} \in A_{ij}.
+  Cost'(W_{i}, [r_{i}]) = \frac{Act_{i}}{Est_{i}} * \frac{\alpha_{ij}}{r_{i}} + \frac{Act_{i}}{Est_{i}} * \beta_{ij}, r_{i} \in A_{ij}.
 \]
 The difference here is the parameter $A_{ij}$, which represents the interval of resource allocation levels corresponding to a particular query execution plan, represented by $j$. Its intervals are obtained during the initial phase, when the query optimizer is called with different resource allocations and returns different query execution plans with their respective costs. These query execution plans define the boundaries of the $A_{ij}$ intervals. The end of this interval is the largest resource allocation level for which the query optimizer produced this plan. The initial values of $\alpha_{ij}$ and $\beta_{ij}$ are obtained through linear regression. Together with $A_{ij}$, they are subsequently adjusted.
 
-Both of the equations presented work within their cost model. Nevertheless, a physical  machine has more than one type of resource. Therefore, the author extends the cost equations to multiple resources. In this extension, it is considered that $M$ resources are recommended, such that $M-1$ resources can be modelled using a linear function, while the resource $M$ is modelled using a piecewise-linear function. The cost of workload $W_{i}$, given a resource allocation $R_{i} = [r_{i1},...,r_{iM}]$ can be given by
+Both the equations presented work within their cost model. Nevertheless, a physical  machine has more than one type of resource. Therefore, the author extends the cost equations to multiple resources. In this extension, it is considered that $M$ resources are recommended, such that $M-1$ resources can be modelled using a linear function, while the resource $M$ is modelled using a piecewise-linear function. The cost of workload $W_{i}$, given a resource allocation $R_{i} = [r_{i1},...,r_{iM}]$ can be given by
 \[
-  Cost(W_{i}, R_{i}) = \sum_{j=1}^{M} \frac{Act_{i}}{Est_{i}} * \frac{\alpha_{ijk}}{r_{ij}} + \frac{Act_{i}}{Est_{i}} * \beta_{ik}, r_{iM} \in A_{iMk},
+  Cost'(W_{i}, R_{i}) = \sum_{j=1}^{M} \frac{Act_{i}}{Est_{i}} * \frac{\alpha_{ijk}}{r_{ij}} + \frac{Act_{i}}{Est_{i}} * \beta_{ik}, r_{iM} \in A_{iMk},
 \]
 in which $k$ represents a certain query execution plan, which defines the boundaries of $A_{iMk}$. 
 
 During refinement, this equation is supposed to be performed iteratively, in order to optimize the parameters $\alpha_{ijk}$ and $\beta_{ijk}$. This iteration is shown below.
 \begin{eqnarray*}
- Cost(W_{i}, R_{i}) &=& \sum_{j=1}^{M} \frac{Act_{i}}{Est_{i}} * \frac{\alpha_{ijk}}{r_{ij}} + \frac{Act_{i}}{Est_{i}} * \beta_{ik} = \sum_{j=1}^{M} \frac{\alpha'_{ijk}}{r_{ij}} + \beta'_{ik}, r_{iM} \in A_{iMk} \\
- Cost(W_{i}, R_{i}) &=& \sum_{j=1}^{M} \frac{Act_{i}}{Est_{i}} * \frac{\alpha'_{ijk}}{r_{ij}} + \frac{Act_{i}}{Est_{i}} * \beta'_{ik} = \sum_{j=1}^{M} \frac{\alpha''_{ijk}}{r_{ij}} + \beta''_{ik}, r_{iM} \in A_{iMk} \\
+ Cost'(W_{i}, R_{i}) &=& \sum_{j=1}^{M} \frac{Act_{i}}{Est_{i}} * \frac{\alpha_{ijk}}{r_{ij}} + \frac{Act_{i}}{Est_{i}} * \beta_{ik} = \sum_{j=1}^{M} \frac{\alpha'_{ijk}}{r_{ij}} + \beta'_{ik}, r_{iM} \in A_{iMk} \\
+ Cost''(W_{i}, R_{i}) &=& \sum_{j=1}^{M} \frac{Act_{i}}{Est_{i}} * \frac{\alpha'_{ijk}}{r_{ij}} + \frac{Act_{i}}{Est_{i}} * \beta'_{ik} = \sum_{j=1}^{M} \frac{\alpha''_{ijk}}{r_{ij}} + \beta''_{ik}, r_{iM} \in A_{iMk} \\
   &\vdots&
 \end{eqnarray*}
 
@@ -199,6 +160,7 @@ After refining the cost equations, the advisor is rerun. If the newly obtained r
 
 \subsection{Dynamic configuration management}
 
+\label{subsec:dcm}
 Even if we have an optimal resource allocation, the workload may change its behaviour during execution. It may occur due to the intensity of the workload (e.g. increased number of clients), or the nature of the workload (e.g. new set of queries with different resource needs ). These changes are not dealt by the online refinement process, that's why the dynamic configuration management is needed. 
 
 The proposed approach consists in monitoring the relative changes in the average cost per query between periods. If the change in the estimated query is above a threshold, $\theta$, we classify this a major change. When this is identified, it's decided to make the virtualization design advisor restart its cost modelling from scratch, before online refinement. The cost model needs to be discarded, since it no longer reflects information about the workload.

@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{Armbrust09abovethe}
 Michael Armbrust, Armando Fox, Rean Griffith, Anthony~D. Joseph, Randy~H. Katz,
@@ -20,6 +20,11 @@ Donald Kossmann and Tim Kraska.
   questions.
 \newblock {\em Datenbank-Spektrum}, 10:121--129, 2010.
 \newblock 10.1007/s13222-010-0033-3.
+
+\bibitem{Mackert:1989:ISU:68012.68016}
+Lothar~F. Mackert and Guy~M. Lohman.
+\newblock Index scans using a finite lru buffer: a validated i/o model.
+\newblock {\em ACM Trans. Database Syst.}, 14(3):401--424, September 1989.
 
 \bibitem{4498282}
 U.F. Minhas, J.~Yadav, A.~Aboulnaga, and K.~Salem.
