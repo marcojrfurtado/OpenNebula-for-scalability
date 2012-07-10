@@ -1,0 +1,65 @@
+\begin{thebibliography}{}
+
+\bibitem[Armbrust et~al., 2009]{Armbrust09abovethe}
+Armbrust, M., Fox, A., Griffith, R., Joseph, A.~D., Katz, R.~H., Konwinski, A.,
+  Lee, G., Patterson, D.~A., Rabkin, A., and Zaharia, M. (2009).
+\newblock Above the clouds: A berkeley view of cloud computing.
+\newblock Technical report.
+
+\bibitem[Curino et~al., 2011]{Curino:2011:WDM:1989323.1989357}
+Curino, C., Jones, E.~P., Madden, S., and Balakrishnan, H. (2011).
+\newblock Workload-aware database monitoring and consolidation.
+\newblock In {\em Proceedings of the 2011 international conference on
+  Management of data}, SIGMOD '11, pages 313--324, New York, NY, USA. ACM.
+
+\bibitem[Kossmann and Kraska, 2010]{springerlink:10.1007/s13222-010-0033-3}
+Kossmann, D. and Kraska, T. (2010).
+\newblock Data management in the cloud: Promises, state-of-the-art, and open
+  questions.
+\newblock {\em Datenbank-Spektrum}, 10:121--129.
+\newblock 10.1007/s13222-010-0033-3.
+
+\bibitem[Mackert and Lohman, 1989]{Mackert:1989:ISU:68012.68016}
+Mackert, L.~F. and Lohman, G.~M. (1989).
+\newblock Index scans using a finite lru buffer: a validated i/o model.
+\newblock {\em ACM Trans. Database Syst.}, 14(3):401--424.
+
+\bibitem[Minhas et~al., 2008]{4498282}
+Minhas, U., Yadav, J., Aboulnaga, A., and Salem, K. (2008).
+\newblock Database systems on virtual machines: How much do you lose?
+\newblock In {\em Data Engineering Workshop, 2008. ICDEW 2008. IEEE 24th
+  International Conference on}, pages 35 --41.
+
+\bibitem[Soror et~al., 2007]{4401021}
+Soror, A., Aboulnaga, A., and Salem, K. (2007).
+\newblock Database virtualization: A new frontier for database tuning and
+  physical design.
+\newblock In {\em Data Engineering Workshop, 2007 IEEE 23rd International
+  Conference on}, pages 388 --394.
+
+\bibitem[Soror et~al., 2008]{Soror:2008:AVM:1376616.1376711}
+Soror, A.~A., Minhas, U.~F., Aboulnaga, A., Salem, K., Kokosielis, P., and
+  Kamath, S. (2008).
+\newblock Automatic virtual machine configuration for database workloads.
+\newblock In {\em Proceedings of the 2008 ACM SIGMOD international conference
+  on Management of data}, SIGMOD '08, pages 953--966, New York, NY, USA. ACM.
+
+\bibitem[Sotomayor et~al., 2009]{5233608}
+Sotomayor, B., Montero, R., Llorente, I., and Foster, I. (2009).
+\newblock Virtual infrastructure management in private and hybrid clouds.
+\newblock {\em Internet Computing, IEEE}, 13(5):14 --22.
+
+\bibitem[Soundararajan et~al., 2009]{Soundararajan:2009:DRA:1525908.1525914}
+Soundararajan, G., Lupei, D., Ghanbari, S., Popescu, A.~D., Chen, J., and Amza,
+  C. (2009).
+\newblock Dynamic resource allocation for database servers running on virtual
+  storage.
+\newblock In {\em Proccedings of the 7th conference on File and storage
+  technologies}, FAST '09, pages 71--84, Berkeley, CA, USA. USENIX Association.
+
+\bibitem[Vengurlekar, 2011]{instance1290}
+Vengurlekar, N. (2011).
+\newblock {Database Consolidation onto Private Clouds}.
+\newblock Technical report, Oracle Corporation.
+
+\end{thebibliography}
