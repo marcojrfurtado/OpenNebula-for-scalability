@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2012.6.29)  5 JUL 2012 15:20
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2012.6.29)  9 JUL 2012 17:36
 entering extended mode
  %&-line parsing enabled.
 **dissertacao.tex
@@ -439,24 +439,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 42--48
  []
 
 [24] [25]
-Overfull \hbox (27.92587pt too wide) in paragraph at lines 84--84
+Overfull \hbox (27.92587pt too wide) in paragraph at lines 85--85
 [] 
  []
 
 [26]
-Overfull \hbox (26.70493pt too wide) in paragraph at lines 91--92
+Overfull \hbox (26.70493pt too wide) in paragraph at lines 92--93
 \T1/cmr/m/n/12 proach would be run-ning the query with the com-mand $\OML/cmm/m
 /it/12 EXPLAIN\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ANALYZE; BUFFERS\OT1/cmr/m/n/12
  )$\T1/cmr/m/n/12 .
  []
 
 
-Overfull \hbox (2.32222pt too wide) in alignment at lines 99--104
+Overfull \hbox (2.32222pt too wide) in alignment at lines 100--105
  [][][] []
  []
 
 [27] [28]
-Overfull \hbox (25.05923pt too wide) in paragraph at lines 137--138
+Overfull \hbox (25.05923pt too wide) in paragraph at lines 138--139
 []\T1/cmr/m/n/12 I/O cost $\OT1/cmr/m/n/12 =$ \T1/cmr/m/n/12 in-di-cates the co
 st of fetch-ing pages from disk, re-lated to pa-ram-e-ters $\OML/cmm/m/it/12 se
 q[]page[]cost$
@@ -535,7 +535,7 @@ fb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi6.pfb></usr/share/texmf/fonts/t
 ype1/bluesky/cm/cmmi8.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr12.pfb></
 usr/share/texmf/fonts/type1/bluesky/cm/cmr8.pfb></usr/share/texmf/fonts/type1/b
 luesky/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy8.pfb>
-Output written on dissertacao.pdf (48 pages, 703513 bytes).
+Output written on dissertacao.pdf (48 pages, 703520 bytes).
 PDF statistics:
  561 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
