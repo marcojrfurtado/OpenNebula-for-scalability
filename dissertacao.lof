@@ -10,8 +10,8 @@
 \contentsline {figure}{\numberline {5.1}{\ignorespaces DatabaseHelper facade with an eventual support of a second DBMS}}{23}
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Implementation overview}}{30}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces $cpu\_operator\_cost$ calibration}}{35}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces $cpu\_tuple\_cost$ calibration}}{36}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Overall performance}}{36}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces $cpu\_operator\_cost$ calibration}}{36}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces $cpu\_tuple\_cost$ calibration}}{37}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces $cpu\_index\_tuple\_cost$ calibration}}{38}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

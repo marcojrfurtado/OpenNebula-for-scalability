@@ -91,10 +91,11 @@ The estimated cost and execution times for these equations can be obtained by ex
 
 To calculate the first two descriptive parameters, only one modification to the original equation was made. PostgreSQL considers the cost fetching pages  during a $SEQSCAN$. The problem is to determine how many pages were actually fetched from disk. One approach would be running the query with the command $EXPLAIN (ANALYZE,BUFFERS)$. By using this command, it's informed the number of pages hit in the PostgreSQL cache and number of pages that needed to be read. However, the PostgreSQL cache may not reflect the state of the operating system cache. During experimentations, changes in the hit/miss ratio did not incur in an expected change in actual costs. Our approach was to cache all the data for the consults and limit the number of page accesses of a determined query. After doing that, costs related to disk page fetches were ignored from the equation.
 
-The third descriptive parameter, $cpu\_index\_tuple\_cost$ , is used during index scans. It can be obtained through the query presented in subsection ~\ref{app:cal1}. Before running this query, it is necessary to set the following parameter:
-\[
- enable\_seqscan=off
-\].
+The third descriptive parameter, $cpu\_index\_tuple\_cost$ , is used during index scans. It can be obtained through the query presented in subsection ~\ref{app:cal1}. Before running this query, it is necessary to set the following parameters:
+\begin{eqnarray*}
+ enable\_seqscan&=&off \\
+ enable\_bitmapscan&=&off \\
+\end{eqnarray*}
 This will force the planner to use an index scan plan, as $aid$ is a primary key, instead of a sequential scan. Its equation is much more complex than the previous one. Mainly because it involves a lot of I/O cost estimates. In addition to $seq\_page\_cost$, its plan is highly dependable on another parameter, namely $random\_page\_cost$. It represents the cost of fetching a non-sequentially disk page. During estimation, PostgreSQL uses an approximation of pages actually fetched after accounting for cache effects. This approximation is proposed in \cite{Mackert:1989:ISU:68012.68016}. The number of fetched pages is
 
 \begin{eqnarray*}

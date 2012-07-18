@@ -19,10 +19,10 @@
 \contentsline {subsection}{\numberline {5.2.3}Online Refinement}{33}
 \contentsline {subsection}{\numberline {5.2.4}Load Generator and Dynamic Configuration Management}{33}
 \contentsline {chapter}{\numberline {6}\MakeUppercase {Results}}{35}
-\contentsline {chapter}{\numberline {7}\MakeUppercase {\textbf {Final considerations}}}{37}
-\contentsline {chapter}{\numberline {8}\MakeUppercase {Appendices}}{38}
-\contentsline {section}{\numberline {8.1}Greedy search algorithm}{38}
-\contentsline {section}{\numberline {8.2}Calibration queries}{39}
-\contentsline {subsection}{\numberline {8.2.1}cpu\_tuple\_cost and cpu\_operator\_cost}{39}
-\contentsline {subsection}{\numberline {8.2.2}cpu\_index\_tuple\_cost}{39}
-\contentsline {chapter}{\MakeUppercase {References}}{41}
+\contentsline {chapter}{\numberline {7}\MakeUppercase {\textbf {Final considerations}}}{39}
+\contentsline {chapter}{\numberline {8}\MakeUppercase {Appendices}}{40}
+\contentsline {section}{\numberline {8.1}Greedy search algorithm}{40}
+\contentsline {section}{\numberline {8.2}Calibration queries}{41}
+\contentsline {subsection}{\numberline {8.2.1}cpu\_tuple\_cost and cpu\_operator\_cost}{41}
+\contentsline {subsection}{\numberline {8.2.2}cpu\_index\_tuple\_cost}{41}
+\contentsline {chapter}{\MakeUppercase {References}}{43}
