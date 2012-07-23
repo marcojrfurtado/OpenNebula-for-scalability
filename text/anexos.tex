@@ -49,6 +49,32 @@
   %\label{alg:greedy}
 \end{algorithm}
 
+\section{CPU allocation decision algorithm}
+\label{sec:cpusearch}
+
+\begin{algorithm}[H]
+ \begin{algorithmic}
+    \FOR{$i = 1 \to N$} 
+	\STATE $r_{i} \gets \frac{1}{N}$
+    \ENDFOR
+    
+    \STATE $ Sum_{i} \gets 0 $
+    \FOR{$i = 1 \to N$}
+	\STATE \COMMENT{Find out how much $W_{i}$ benefits from adjusting the resource }
+
+	\STATE $ Slope_{i} \gets Cost(W_{i},r_{i}) - Cost(W_{i},r_{i} + \delta)$
+	\STATE $ Sum_{i} \gets Sum_{i} + Slope_{i} $
+    \ENDFOR
+    \FOR{$i = 1 \to N$}
+	\STATE \COMMENT{ Set the appropriate CPU allocation level of $W_{i}$. Ratio is the relative improvement of $W_{i}$ }
+	\STATE $ Ratio_{i} \gets Slope_{i} * Sum_{i} $
+	\STATE $ R_{i} \gets N*Ratio_{i} $
+    \ENDFOR
+
+ \end{algorithmic}
+  \caption{Greedy search algorithm}
+  %\label{alg:greedy}
+\end{algorithm}
 
 \section{Calibration queries}
 

@@ -1,5 +1,15 @@
 \chapter{\textbf{Final considerations}}
 
+In this paper, it was considered the problem of automatically configuring multiple virtual machines, which were deployed in a cloud. The aim was to show that it is possible to improve the overall performance of running database workloads by optimizing the resource allocation among them. Through the development of an advisor and further experimentations, it was demonstrated that this objective can be achieved even by reallocating a single resource.
+
+Our approach to leverage the cost model built within the query optimizer was shown to be effective. The advantage of its use is that the cost model takes into consideration the nature of database workloads. However, this approach can turn the support of new DBMSes much harder. If a DBMS does not offer tools for self calibration, the tuning parameters that describe its resources must be calibrated manually. Thus, their use within the cost model and their variation need to be analyzed. For the same reason, the support of new resources are also hard.
+
+We have also shown that without the advisor, all resource allocation levels must be set manually and they are static along the VM's life cycle. This means that they will not be adapted to the workload needs. That is why the existence of the virtualization design advisor in a cloud is important.
+
+There is a lot of room for future work in database consolidation. Obvious directions include expanding the virtualization design advisor, in order to support new resource types and DBMSes. In addition, further experiments could show the effects of changing the workload intensity when running the workloads.
+
+Furthermore, the cloud infrastructure could be more exploited. In this work, we tried to improve the performance of the database workloads by optimizing the resource reallocation inside each host from the cloud. This means that the advisor does not see the cloud as a whole, because it does not need to. In future implementations, VM migration could be used to transfer VMs to hosts with more available resources.  This feature is already supported by OpenNebula. The problem is how to optimize these transfers, because they generate a high overhead. 
+
 %Even though OpenNebula's capabilities of scheduling enables a way of distributing resources, this is not enough for consolidating them. Its goal is not to analyse the application workload inside a VM. That's why the resources need to be required in a static way, in which it's not possible for them to be reallocated.
 
 %The virtualization design advisor is a way of distributing these resources by considering the database workload. Although it generates overhead, it provides a way of dealing with both over- and under- utilization of resources. 
