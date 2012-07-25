@@ -1,6 +1,6 @@
 \chapter{\textbf{Final considerations}}
 
-In this paper, it was considered the problem of automatically configuring multiple virtual machines, which were deployed in a cloud. The aim was to show that it is possible to improve the overall performance of running database workloads by optimizing the resource allocation among them. Through the development of an advisor and further experimentations, it was demonstrated that this objective can be achieved even by reallocating a single resource.
+In this paper, we considered the problem of automatically configuring multiple virtual machines, which were deployed in a cloud. The aim was to show that it is possible to improve the overall performance of running database workloads by optimizing the resource allocation among them. Through the development of an advisor and further experimentations, it was demonstrated that this objective can be achieved even by reallocating a single resource.
 
 Our approach to leverage the cost model built within the query optimizer was shown to be effective. The advantage of its use is that the cost model takes into consideration the nature of database workloads. However, this approach can turn the support of new DBMSes much harder. If a DBMS does not offer tools for self calibration, the tuning parameters that describe its resources must be calibrated manually. Thus, their use within the cost model and their variation need to be analyzed. For the same reason, the support of new resources are also hard.
 

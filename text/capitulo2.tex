@@ -16,13 +16,12 @@ In \cite{Soror:2008:AVM:1376616.1376711}, the author considers a typical resourc
 
 \section{Problem definition}
 
-In order to model this problem, the author assumes that there are  $M$ types of resources , such as CPU capacity, memory, or I/O bandwidth. The notation used to represent the share of resources allocated to a VM running a workload $W_{i}$ is $R_{i} = [r_{i1},...r_{iM}], 0 \leq r_{ij} \leq 1$. It is also considered that each workload $W_{i}$ has the same monitoring interval for all the VMs ( i.e. the workloads represent the statements processed by different DBMS instances in the same amount of time ).
+In order to model this problem, the author assumes that there are  $M$ types of resources, such as CPU capacity, memory, or I/O bandwidth. The notation used to represent the share of resources allocated to a VM running a workload $W_{i}$ is $R_{i} = [r_{i1},...r_{iM}], 0 \leq r_{ij} \leq 1$. It is also considered that each workload $W_{i}$ has the same monitoring interval for all the VMs ( i.e. the workloads represent the statements processed by different DBMS instances in the same amount of time ).
 
-Each workload is associated to a cost, which depends on the resource share allocated to the VM in which it runs. The notation $Cost(W_{i},R_{i})$ is used to represent the cost of running the workload $W_{i}$ under resource allocation $R_{i}$. Considering that there are $N$ workloads, the goal is to choose $r_{ij}, 1 \leq i \leq N, 1 \leq j \leq M$ such that 
+Each workload is associated to a cost, which depends on the resource share allocated to the VM in which it runs. The notation $Cost(W_{i},R_{i})$ is used to represent the cost of running the workload $W_{i}$ under resource allocation $R_{i}$. Considering that there are $N$ workloads, the goal is to choose $r_{ij}, 1 \leq i \leq N, 1 \leq j \leq M$ such that the following formula is minimized:
 \[
   \sum_{i=1}^{N} Cost(W_{i},R_{i})
-\]
-is minimized.
+\].
 
 This problem was generalized to satisfy Quality of Service (QoS) requirements. One of these requirements is the possibility to specify the maximum increase in cost that is allowed for a workload under the recommended resource allocation. In order to model this requirement, it was defined a \textit{cost degradation} as
 \[

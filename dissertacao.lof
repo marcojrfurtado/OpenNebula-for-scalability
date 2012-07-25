@@ -13,5 +13,9 @@
 \contentsline {figure}{\numberline {6.1}{\ignorespaces $cpu\_operator\_cost$ calibration}}{39}
 \contentsline {figure}{\numberline {6.2}{\ignorespaces $cpu\_tuple\_cost$ calibration}}{40}
 \contentsline {figure}{\numberline {6.3}{\ignorespaces $cpu\_index\_tuple\_cost$ calibration}}{41}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Varying CPU intensity}}{42}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces CPU intensity variation for PostgreSQL in \cite {Soror:2008:AVM:1376616.1376711}}}{43}
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Online refinement efficiency}}{44}
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Dynamic workload change detection}}{45}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
