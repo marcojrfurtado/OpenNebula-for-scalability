@@ -26,6 +26,15 @@ Lothar~F. Mackert and Guy~M. Lohman.
 \newblock Index scans using a finite lru buffer: a validated i/o model.
 \newblock {\em ACM Trans. Database Syst.}, 14(3):401--424, September 1989.
 
+\bibitem{springerlink:10.1007/3-540-44469-6_9}
+Patrick Martin, Hoi-Ying Li, Min Zheng, Keri Romanufa, and Wendy Powley.
+\newblock Dynamic reconfiguration algorithm: Dynamically tuning multiple buffer
+  pools.
+\newblock In Mohamed Ibrahim, Josef Küng, and Norman Revell, editors, {\em
+  Database and Expert Systems Applications}, volume 1873 of {\em Lecture Notes
+  in Computer Science}, pages 92--101. Springer Berlin / Heidelberg, 2000.
+\newblock 10.1007/3-540-44469-6\_9.
+
 \bibitem{4498282}
 U.F. Minhas, J.~Yadav, A.~Aboulnaga, and K.~Salem.
 \newblock Database systems on virtual machines: How much do you lose?
@@ -43,9 +52,7 @@ A.A. Soror, A.~Aboulnaga, and K.~Salem.
 Ahmed~A. Soror, Umar~Farooq Minhas, Ashraf Aboulnaga, Kenneth Salem, Peter
   Kokosielis, and Sunil Kamath.
 \newblock Automatic virtual machine configuration for database workloads.
-\newblock In {\em Proceedings of the 2008 ACM SIGMOD international conference
-  on Management of data}, SIGMOD '08, pages 953--966, New York, NY, USA, 2008.
-  ACM.
+\newblock {\em ACM Trans. Database Syst.}, 35(1), 2010.
 
 \bibitem{5233608}
 B.~Sotomayor, R.S. Montero, I.M. Llorente, and I.~Foster.
@@ -60,6 +67,13 @@ Gokul Soundararajan, Daniel Lupei, Saeed Ghanbari, Adrian~Daniel Popescu, Jin
 \newblock In {\em Proccedings of the 7th conference on File and storage
   technologies}, FAST '09, pages 71--84, Berkeley, CA, USA, 2009. USENIX
   Association.
+
+\bibitem{Storm:2006:ASM:1182635.1164220}
+Adam~J. Storm, Christian Garcia-Arellano, Sam~S. Lightstone, Yixin Diao, and
+  M.~Surendra.
+\newblock Adaptive self-tuning memory in db2.
+\newblock In {\em Proceedings of the 32nd international conference on Very
+  large data bases}, VLDB '06, pages 1081--1092. VLDB Endowment, 2006.
 
 \bibitem{instance1290}
 Nitin Vengurlekar.

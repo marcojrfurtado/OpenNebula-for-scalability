@@ -178,7 +178,7 @@
 
       \hfill{\parbox{8cm}{Term paper presented as a requirement in
 	   the  Bachelor in Computer Science program
-	  from the Informatics Depatment,
+	  from the Department of Informatics,
 	  Exact Sciences Faculty, Universidade Federal do Paran{\'a}.\\
           \@advisortitle: \@advisorname}}\par  \null\vfill
       \MakeUppercase\@city\\

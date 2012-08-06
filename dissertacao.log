@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2012.7.18)  25 JUL 2012 07:49
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2012.7.18)  6 AUG 2012 16:48
 entering extended mode
  %&-line parsing enabled.
 **dissertacao.tex
@@ -347,7 +347,7 @@ File: umsb.fd 2002/01/19 v2.2g AMS font definitions
 Chapter 1.
 [1
 
-] <./images/infra-model.png, id=30, 290.08376pt x 216.81pt>
+] <./images/infra-model.png, id=29, 290.08376pt x 216.81pt>
 File: ./images/infra-model.png Graphic file (type png)
 
 <use ./images/infra-model.png> [2] [3 <./images/infra-model.png (PNG copy)>]
@@ -548,13 +548,13 @@ File: uni-0.def 2004/10/17 UCS: Unicode data U+0000..U+00FF
 
 ]) [51] [1] (./dissertacao.aux) ) 
 Here is how much of TeX's memory you used:
- 5064 strings out of 256216
- 63821 string characters out of 1917072
- 121911 words of memory out of 1500000
- 8199 multiletter control sequences out of 10000+200000
+ 5066 strings out of 256216
+ 63891 string characters out of 1917072
+ 121923 words of memory out of 1500000
+ 8201 multiletter control sequences out of 10000+200000
  19199 words of font info for 52 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
- 32i,17n,32p,1280b,952s stack positions out of 5000i,500n,6000p,200000b,15000s
+ 32i,17n,32p,1445b,952s stack positions out of 5000i,500n,6000p,200000b,15000s
  </home/opennebula/.texlive2007/texmf-var/font
 s/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/opennebula/.texlive2007/texmf-va
 r/fonts/pk/ljfour/jknappen/ec/ecrm0700.600pk> </home/opennebula/.texlive2007/te
@@ -570,9 +570,9 @@ ype1/bluesky/cm/cmmi12.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi6.pfb><
 /bluesky/cm/cmr12.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr8.pfb></usr/s
 hare/texmf/fonts/type1/bluesky/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/blue
 sky/cm/cmsy8.pfb>
-Output written on dissertacao.pdf (58 pages, 793201 bytes).
+Output written on dissertacao.pdf (58 pages, 794703 bytes).
 PDF statistics:
- 604 PDF objects out of 1000 (max. 8388607)
+ 606 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  66 words of extra memory for PDF output out of 10000 (max. 10000000)
 

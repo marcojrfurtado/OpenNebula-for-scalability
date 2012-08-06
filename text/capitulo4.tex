@@ -159,7 +159,7 @@ After the end of the calibration process for a certain host, the virtualization 
 
 The \textbf{ConfigurationSearch} class, from which the advisor is started,  has the same objective of the algorithm presented in section ~\ref{sec:greedy}, explained in chapter  ~\ref{chap:virtualization}. However it is not its implementation. Since we are only reallocating CPU, and its variation is linear, this kind of search is not necessary. The implemented algorithm is shown in section ~\ref{sec:cpusearch}. It considers that the equation of the cost model is represented by the following linear equation:
 \[
- Cost(W_{i}, [r_{i}]) = \frac{\alpha_{i}}{r_{i}} +\beta_{i}.
+ Cost(W_{i}, r_{i}) = \frac{\alpha_{i}}{r_{i}} +\beta_{i}.
 \].
 Therefore, this algorithm is used when CPU, or other resource that varies linearly, is the only one to be reallocated. It works by deducing the value of $\alpha_{i}$ for each workload $W_{i}$. This parameter represents the slope of the cost equation ( i.e. it shows how much our cost improves by increasing $r_{i}$ ). We compare the  value of $\alpha_{i}$ to the slopes of all the workloads. This relative value of $\alpha_{i}$ is used to set the allocation level. For instance, consider the situation in which there are two workloads being run, and one of them improves twice as much as the other one, when added the same amount of resources. In this case, the workload that has a better improvement rate will get two times more CPU as the other one. This means that we are not interested in the cost itself, but how much it benefits from CPU adjustment. One benefit from this algorithm, when compared to the greedy search, is that it makes less calls to the DBMS query optimizer cost estimator. It does not need to iteratively shift an amount of resources from one workload to another.
 
@@ -181,7 +181,7 @@ expected to have a better performance as it is being run.
 
 Other difference between our cost estimator and the one built inside the query optimizer is the scale used. Our approach was to use use costs based on query runtime. The reason is that this is easy to determine and a better approach to compare different DBMSes. As already mentioned in section ~\ref{sec:calib}, PostgreSQL has a different notion of cost. Like it was done during the calibration process, we simply use the actual value of $seq\_page\_cost$ to convert between the two scales. Our renormalization equation is the following:
 \[
- Cost(W_{i}, [r_{i}]) = Cost_{DB}(W_{i},P_{i},D_{i}) * seq\_page\_cost_{actual}
+ Cost(W_{i}, r_{i}) = Cost_{DB}(W_{i},P_{i},D_{i}) * seq\_page\_cost_{actual}
 \]
 
 . Once the cost model is built, it can be refined by the \textbf{OnlineRefinement} class.
@@ -191,9 +191,9 @@ Other difference between our cost estimator and the one built inside the query o
 The online refinement process adopted in our advisor is straightforward. Considering that the CPU has a linear model and that we only need to refine this resource, the \textbf{OnlineRefinement} class  is an implementation of the first refinement equation presented in subsection ~\ref{subsec:ref}. This equation is designed specifically for refining resources with linear variation. During execution, the cost model is refined the following way:
 \begin{equation}
  \begin{split}
-   Cost(W_{i}, [r_{i}]) & = \frac{\alpha_{i}}{r_{i}} +\beta_{i} \\
-   Cost'(W_{i}, [r_{i}]) & = \frac{Act_{i}}{Est_{i}} * \frac{\alpha_{i}}{r_{i}} + \frac{Act_{i}}{Est_{i}} * \beta_{i} = \frac{\alpha_{i}'}{r_{i}} +\beta_{i}' \\
-   Cost''(W_{i}, [r_{i}]) & = \frac{Act_{i}}{Est_{i}} * \frac{\alpha_{i}'}{r_{i}} + \frac{Act_{i}}{Est_{i}} * \beta_{i}' = \frac{\alpha_{i}''}{r_{i}} +\beta_{i}'' \\
+   Cost(W_{i}, r_{i}) & = \frac{\alpha_{i}}{r_{i}} +\beta_{i} \\
+   Cost'(W_{i}, r_{i}) & = \frac{Act_{i}}{Est_{i}} * \frac{\alpha_{i}}{r_{i}} + \frac{Act_{i}}{Est_{i}} * \beta_{i} = \frac{\alpha_{i}'}{r_{i}} +\beta_{i}' \\
+   Cost''(W_{i}, r_{i}) & = \frac{Act_{i}}{Est_{i}} * \frac{\alpha_{i}'}{r_{i}} + \frac{Act_{i}}{Est_{i}} * \beta_{i}' = \frac{\alpha_{i}''}{r_{i}} +\beta_{i}'' \\
     & \vdots
  \end{split}
 \end{equation}
