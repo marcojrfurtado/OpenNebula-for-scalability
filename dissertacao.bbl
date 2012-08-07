@@ -14,6 +14,12 @@ Carlo Curino, Evan~P.C. Jones, Samuel Madden, and Hari Balakrishnan.
   Management of data}, SIGMOD '11, pages 313--324, New York, NY, USA, 2011.
   ACM.
 
+\bibitem{dias:automatic}
+Karl Dias, Mark Ramacher, Uri Shaft, Venkateshwaran Venkataramani, and Graham
+  Wood.
+\newblock Automatic performance diagnosis and tuning in oracle.
+\newblock In {\em CIDR'05}, pages 84--94, 2005.
+
 \bibitem{springerlink:10.1007/s13222-010-0033-3}
 Donald Kossmann and Tim Kraska.
 \newblock Data management in the cloud: Promises, state-of-the-art, and open
@@ -48,6 +54,14 @@ A.A. Soror, A.~Aboulnaga, and K.~Salem.
 \newblock In {\em Data Engineering Workshop, 2007 IEEE 23rd International
   Conference on}, pages 388 --394, april 2007.
 
+\bibitem{Soror:2008:AVM:1376616.1376711-OLD}
+Ahmed~A. Soror, Umar~Farooq Minhas, Ashraf Aboulnaga, Kenneth Salem, Peter
+  Kokosielis, and Sunil Kamath.
+\newblock Automatic virtual machine configuration for database workloads.
+\newblock In {\em Proceedings of the 2008 ACM SIGMOD international conference
+  on Management of data}, SIGMOD '08, pages 953--966, New York, NY, USA, 2008.
+  ACM.
+
 \bibitem{Soror:2008:AVM:1376616.1376711}
 Ahmed~A. Soror, Umar~Farooq Minhas, Ashraf Aboulnaga, Kenneth Salem, Peter
   Kokosielis, and Sunil Kamath.
@@ -74,6 +88,12 @@ Adam~J. Storm, Christian Garcia-Arellano, Sam~S. Lightstone, Yixin Diao, and
 \newblock Adaptive self-tuning memory in db2.
 \newblock In {\em Proceedings of the 32nd international conference on Very
   large data bases}, VLDB '06, pages 1081--1092. VLDB Endowment, 2006.
+
+\bibitem{6127969}
+Guan Tong, Hai Jin, Xia Xie, Wenzhi Cao, and Pingpeng Yuan.
+\newblock Measuring and analyzing cpu overhead of virtualization system.
+\newblock In {\em Services Computing Conference (APSCC), 2011 IEEE
+  Asia-Pacific}, pages 243 --250, dec. 2011.
 
 \bibitem{instance1290}
 Nitin Vengurlekar.

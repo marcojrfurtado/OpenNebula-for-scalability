@@ -1,5 +1,5 @@
 %\chapter{\textbf{Virtualization design advisor}}
-\chapter{Virtualization design advisor}
+\section{Virtualization design advisor}
 
 \label{chap:virtualization}
 
@@ -14,7 +14,7 @@ In \cite{Soror:2008:AVM:1376616.1376711}, the author considers a typical resourc
 \label{fig:scenario}
 \end{figure} 
 
-\section{Problem definition}
+\subsection{Problem definition}
 
 In order to model this problem, the author assumes that there are  $M$ types of resources, such as CPU capacity, memory, or I/O bandwidth. The notation used to represent the share of resources allocated to a VM running a workload $W_{i}$ is $R_{i} = [r_{i1},...r_{iM}], 0 \leq r_{ij} \leq 1$. It is also considered that each workload $W_{i}$ has the same monitoring interval for all the VMs ( i.e. the workloads represent the statements processed by different DBMS instances in the same amount of time ).
 
@@ -39,7 +39,7 @@ Other QoS requirement introduced involves the ability to specify relative priori
 \]
 
 
-\section{Architecture}
+\subsection{Architecture}
 
 The process of  determining the allocation of resources to each VM is neither immediate, nor static. The proposed advisor follows a sequence of steps. Initially, it makes a resource allocation based on the workload descriptions and performance goals, which is performed offline ( i.e. the VMs are not running yet ). Then all of the subsequent steps are performed online. It adjusts its recommendations based on the difference between expected and actual workload costs to correct for any cost estimation errors made during the initial phase. At the same time, it uses continuing monitoring information to dynamically detect changes in the workloads. This last step is important because a workload cannot be considered static, its resource needs may change during execution. In both of these online steps, the resource allocation step may occasionally be performed again with updated cost models. This approach prevents the advisor from allocating resources to DBMS instances that will obtain little benefit from them. These 
 resources need to be given to the workloads that need them the most.
@@ -54,7 +54,7 @@ Since the advisor does not consist of one single task, it makes sense to organiz
 \label{fig:architecture}
 \end{figure} 
 
-\subsection{Cost estimation and initial allocation}
+\subsubsection{Cost estimation and initial allocation}
 \label{subsec:cost}
 
 Given a workload $W_{i}$, the cost estimator will predict $Cost(W_{i},R_{i})$. The strategy used to implement this module is to leverage the cost models built into database systems for query optimization. The query optimizer cost model can be described as $Cost_{DB}(W_{i},P_{i},D_{i})$, where $W_{i}$ is a SQL workload, $P_{i} = [p_{i1},..,p_{iL}]$ is a vector of parameters that are used to list both the available computing resources and DBMS configuration parameters relevant to the cost model, and $D_{i}$ is  the database instance. 
@@ -117,7 +117,7 @@ From experimental results, the creator of this algorithm observed that the greed
 
 
 
-\subsection{Online refinement}
+\subsubsection{Online refinement}
 \label{subsec:ref}
 
 The initial allocation is based on the calibrated query optimizer cost model, as described earlier. This enables the advisor to make recommendations based on an informed cost model. However, this model may have inaccuracies that lead to sub-optimal recommendations. The  \textit{online refinement} is based on the observation of the actual times of execution for a workload. It uses these observations to refine resource allocation recommendations. Then the advisor is rerun with the new cost models, so  we can obtain an improved resource allocation for different workloads. These optimizations are performed until the allocations stabilize (i.e. the new recommendation is equal to the last one ). It is important to notice that the goal of the \textit{online refinement} is not to deal with dynamic changes in the workload, which are dealt by another module, but to correct cost models. Thus, it is assumed that the workload is not going to change during this process. 
@@ -157,7 +157,7 @@ The author in \cite{Soror:2008:AVM:1376616.1376711} proposes a heuristic that ch
 
 After refining the cost equations, the advisor is rerun. If the newly obtained resource allocation is the same as the original, the refinement process is stopped. Otherwise, it goes on.
 
-\subsection{Dynamic configuration management}
+\subsubsection{Dynamic configuration management}
 
 \label{subsec:dcm}
 Even if we have an optimal resource allocation, the workload may change its behaviour during execution. It may occur due to the intensity of the workload (e.g. increased number of clients), or the nature of the workload (e.g. new set of queries with different resource needs ). These changes are not dealt by the online refinement process, that is why the dynamic configuration management is needed. 

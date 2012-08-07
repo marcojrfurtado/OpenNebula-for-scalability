@@ -3,31 +3,33 @@
 \contentsline {section}{\numberline {1.1}Context}{2}
 \contentsline {section}{\numberline {1.2}Objective}{3}
 \contentsline {chapter}{\numberline {2}\MakeUppercase {\textbf {Related Work}}}{6}
-\contentsline {chapter}{\numberline {3}\MakeUppercase {Virtualization design advisor}}{8}
-\contentsline {section}{\numberline {3.1}Problem definition}{8}
-\contentsline {section}{\numberline {3.2}Architecture}{10}
-\contentsline {subsection}{\numberline {3.2.1}Cost estimation and initial allocation}{10}
-\contentsline {subsection}{\numberline {3.2.2}Online refinement}{13}
-\contentsline {subsection}{\numberline {3.2.3}Dynamic configuration management}{16}
-\contentsline {chapter}{\numberline {4}\MakeUppercase {\textbf {Cloud infrastructure management}}}{18}
-\contentsline {section}{\numberline {4.1}Scheduler}{21}
-\contentsline {chapter}{\numberline {5}\MakeUppercase {\textbf {Implementation}}}{22}
-\contentsline {section}{\numberline {5.1}Calibration}{25}
-\contentsline {section}{\numberline {5.2}Virtualization Design Advisor}{31}
-\contentsline {subsection}{\numberline {5.2.1}Configuration Search}{31}
-\contentsline {subsection}{\numberline {5.2.2}Cost Estimator}{33}
-\contentsline {subsection}{\numberline {5.2.3}Online Refinement}{34}
-\contentsline {subsection}{\numberline {5.2.4}Load Generator and Dynamic Configuration Management}{35}
-\contentsline {chapter}{\numberline {6}\MakeUppercase {Results}}{37}
-\contentsline {section}{\numberline {6.1}Calibration}{37}
-\contentsline {section}{\numberline {6.2}Advisor}{38}
-\contentsline {subsection}{\numberline {6.2.1}Online Refinement}{42}
-\contentsline {subsection}{\numberline {6.2.2}Dynamic Configuration Management}{44}
-\contentsline {chapter}{\numberline {7}\MakeUppercase {\textbf {Final considerations}}}{46}
-\contentsline {chapter}{\numberline {8}\MakeUppercase {Appendices}}{48}
-\contentsline {section}{\numberline {8.1}Greedy search algorithm}{48}
-\contentsline {section}{\numberline {8.2}CPU allocation decision algorithm}{49}
-\contentsline {section}{\numberline {8.3}Calibration queries}{49}
-\contentsline {subsection}{\numberline {8.3.1}cpu\_tuple\_cost and cpu\_operator\_cost}{49}
-\contentsline {subsection}{\numberline {8.3.2}cpu\_index\_tuple\_cost}{49}
-\contentsline {chapter}{\MakeUppercase {References}}{51}
+\contentsline {section}{\numberline {2.1}Overview}{6}
+\contentsline {section}{\numberline {2.2}Virtualization design advisor}{6}
+\contentsline {subsection}{\numberline {2.2.1}Problem definition}{7}
+\contentsline {subsection}{\numberline {2.2.2}Architecture}{8}
+\contentsline {subsubsection}{\numberline {2.2.2.1}Cost estimation and initial allocation}{9}
+\contentsline {subsubsection}{\numberline {2.2.2.2}Online refinement}{12}
+\contentsline {subsubsection}{\numberline {2.2.2.3}Dynamic configuration management}{14}
+\contentsline {chapter}{\numberline {3}\MakeUppercase {\textbf {Cloud infrastructure management}}}{16}
+\contentsline {section}{\numberline {3.1}Scheduler}{19}
+\contentsline {chapter}{\numberline {4}\MakeUppercase {\textbf {Implementation}}}{20}
+\contentsline {section}{\numberline {4.1}Calibration}{23}
+\contentsline {section}{\numberline {4.2}Virtualization Design Advisor}{29}
+\contentsline {subsection}{\numberline {4.2.1}Configuration Search}{29}
+\contentsline {subsection}{\numberline {4.2.2}Cost Estimator}{31}
+\contentsline {subsection}{\numberline {4.2.3}Online Refinement}{32}
+\contentsline {subsection}{\numberline {4.2.4}Load Generator and Dynamic Configuration Management}{33}
+\contentsline {chapter}{\numberline {5}\MakeUppercase {Results}}{35}
+\contentsline {section}{\numberline {5.1}Calibration}{36}
+\contentsline {section}{\numberline {5.2}Advisor}{38}
+\contentsline {subsection}{\numberline {5.2.1}Configuration Search}{39}
+\contentsline {subsection}{\numberline {5.2.2}Online Refinement}{41}
+\contentsline {subsection}{\numberline {5.2.3}Dynamic Configuration Management}{42}
+\contentsline {chapter}{\numberline {6}\MakeUppercase {\textbf {Final considerations}}}{45}
+\contentsline {chapter}{\numberline {7}\MakeUppercase {Appendices}}{46}
+\contentsline {section}{\numberline {7.1}Greedy search algorithm}{46}
+\contentsline {section}{\numberline {7.2}CPU allocation decision algorithm}{47}
+\contentsline {section}{\numberline {7.3}Calibration queries}{47}
+\contentsline {subsection}{\numberline {7.3.1}cpu\_tuple\_cost and cpu\_operator\_cost}{47}
+\contentsline {subsection}{\numberline {7.3.2}cpu\_index\_tuple\_cost}{47}
+\contentsline {chapter}{\MakeUppercase {References}}{1}

@@ -1,21 +1,20 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Infrastructure cloud deployment model}}{3}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Resource Consolidation scenario}}{7}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Advisor overview}}{9}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Resource Consolidation scenario}}{8}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Advisor overview}}{11}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces OpenNebula architecture}}{17}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces OpenNebula architecture}}{19}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces DatabaseHelper facade with an eventual support of a second DBMS}}{22}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Implementation overview}}{29}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces DatabaseHelper facade with an eventual support of a second DBMS}}{24}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Implementation overview}}{31}
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces $cpu\_operator\_cost$ calibration}}{39}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces $cpu\_tuple\_cost$ calibration}}{40}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces $cpu\_index\_tuple\_cost$ calibration}}{41}
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Varying CPU intensity}}{42}
-\contentsline {figure}{\numberline {6.5}{\ignorespaces CPU intensity variation for PostgreSQL in \cite {Soror:2008:AVM:1376616.1376711}}}{43}
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Online refinement efficiency}}{44}
-\contentsline {figure}{\numberline {6.7}{\ignorespaces Dynamic workload change detection}}{45}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Mapping of the $cpu\_operator\_cost$ parameter under different resource allocation levels during calibration}}{37}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Mapping of the $cpu\_tuple\_cost$ parameter under different resource allocation levels during calibration}}{38}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Mapping of the $cpu\_index\_tuple\_cost$ parameter under different resource allocation levels during calibration}}{39}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Improvement achieved through configuration search for different CPU intensity levels}}{40}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces First experiment for PostgreSQL performed in \cite {Soror:2008:AVM:1376616.1376711}}}{41}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Online refinement effects on the improvement for the second experiment}}{43}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Dynamic configuration management effects for the third experiment}}{44}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
