@@ -1,0 +1,217 @@
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=latex 2011.12.24)  7 AUG 2012 19:16
+entering extended mode
+ %&-line parsing enabled.
+**template.tex
+(./template.tex
+LaTeX2e <2005/12/01>
+Babel <v3.8h> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, arabic, basque, bulgarian, coptic, welsh, czech, slovak, german, ng
+erman, danish, esperanto, spanish, catalan, galician, estonian, farsi, finnish,
+ french, greek, monogreek, ancientgreek, croatian, hungarian, interlingua, ibyc
+us, indonesian, icelandic, italian, latin, mongolian, dutch, norsk, polish, por
+tuguese, pinyin, romanian, russian, slovenian, uppersorbian, serbian, swedish, 
+turkish, ukenglish, ukrainian, loaded.
+(./jidm.cls
+Document Class: jidm 2009/12/17 JIDM class based on ACM Trans.
+(/usr/share/texmf/tex/latex/base/latexsym.sty
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 47.
+)
+(/usr/share/texmf/tex/latex/ltxmisc/url.sty
+\Urlmuskip=\muskip10
+Package: url 2005/06/27  ver 3.2  Verb mode for urls, etc.
+)
+\c@@auth=\count79
+\c@@inst=\count80
+\c@auco=\count81
+\instindent=\dimen102
+
+
+Using JIDM: 2010/03/12
+
+\footheight=\dimen103
+\normaltextheight=\dimen104
+\c@secnumbookdepth=\count82
+\c@part=\count83
+\c@section=\count84
+\c@subsection=\count85
+\c@subsubsection=\count86
+\c@paragraph=\count87
+\c@figure=\count88
+\c@table=\count89
+\@narrowfig=\dimen105
+\@nfigbox=\box26
+\@nfcapbox=\box27
+\@abstract=\box28
+\@terms=\box29
+\@keywords=\box30
+\bibhang=\skip41
+\bibindent=\dimen106
+) (/usr/share/texmf/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/share/texmf/tex/latex/graphics/graphics.sty
+Package: graphics 2006/02/20 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/share/texmf/tex/latex/config/graphics.cfg
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: dvips.def on input line 90.
+
+(/usr/share/texmf/tex/latex/graphics/dvips.def
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+))
+\Gin@req@height=\dimen107
+\Gin@req@width=\dimen108
+)
+(/usr/share/texmf/tex/latex/oberdiek/epstopdf.sty
+Package: epstopdf 2006/08/26 v1.3 Conversion with epstopdf on the fly (HO)
+
+
+Package epstopdf Warning: Graphics driver file `pdftex.def' not found.
+
+) (/usr/share/texmf/tex/latex/base/fontenc.sty
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+
+(/usr/share/texmf/tex/latex/base/t1enc.def
+File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
+))
+\c@theorem=\count90
+ (./template.aux)
+\openout1 = `template.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 95.
+
+(/usr/share/texmf/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 95.
+LaTeX Font Info:    Try loading font information for T1+cmss on input line 97.
+
+(/usr/share/texmf/tex/latex/base/t1cmss.fd
+File: t1cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 97.
+
+(/usr/share/texmf/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+) [1
+
+]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 167.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 167.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 167.
+
+(/usr/share/texmf/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 182.
+ [2]
+
+LaTeX Warning: Citation `Baeza-YatesR99' on page 3 undefined on input line 187.
+
+
+
+LaTeX Warning: Citation `BorgidaCL09' on page 3 undefined on input line 187.
+
+
+LaTeX Warning: Citation `FerreiraGALV09' on page 3 undefined on input line 187.
+
+
+
+LaTeX Warning: Citation `SilvaLC96' on page 3 undefined on input line 187.
+
+
+LaTeX Warning: Citation `LaenderMNM09' on page 3 undefined on input line 187.
+
+
+LaTeX Warning: Citation `Moro07' on page 3 undefined on input line 187.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 187.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 187.
+
+LaTeX Warning: Citation `xpath' on page 3 undefined on input line 187.
+
+File: schedule.eps Graphic file (type eps)
+<schedule.eps> [3] [4] [5] [6]
+Underfull \hbox (badness 10000) in paragraph at lines 520--527
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 528--537
+
+ []
+
+[7]
+Overfull \hbox (9.80132pt too wide) in paragraph at lines 538--547
+[][]\T1/cmtt/m/n/10 title = {{SyGAR - A Synthetic Data Generator for Evaluating
+ Name Disambiguation 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 538--547
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 548--557
+
+ []
+
+
+Overfull \hbox (25.54747pt too wide) in paragraph at lines 558--564
+[][]\T1/cmtt/m/n/10 title = {{The Role of Structural Aggregation for Query Proc
+essing over XML Data}}, 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 558--564
+
+ []
+
+
+Overfull \hbox (36.0449pt too wide) in paragraph at lines 565--577
+[][]\T1/cmtt/m/n/10 author = {Altigran Soares da Silva and Alberto H. F. Laende
+r and Marco A. Casanova}, 
+ []
+
+[8] (./template.bbl) [9] (./template.aux) ) 
+Here is how much of TeX's memory you used:
+ 1135 strings out of 256217
+ 12764 string characters out of 1917094
+ 63639 words of memory out of 1500000
+ 4429 multiletter control sequences out of 10000+200000
+ 17836 words of font info for 45 fonts, out of 1200000 for 2000
+ 645 hyphenation exceptions out of 8191
+ 26i,9n,21p,1049b,319s stack positions out of 5000i,500n,6000p,200000b,15000s
+
+Output written on template.dvi (9 pages, 31436 bytes).

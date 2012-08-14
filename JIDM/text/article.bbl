@@ -1,0 +1,81 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\citeauthoryear{Dias, Ramacher, Shaft, Venkataramani, and
+  Wood}{Dias et~al\mbox{.}}{2005}]{dias:automatic}
+{\sc Dias, K.}, {\sc Ramacher, M.}, {\sc Shaft, U.}, {\sc Venkataramani, V.},
+  {\sc and} {\sc Wood, G.}
+\newblock Automatic performance diagnosis and tuning in oracle.
+\newblock In {\em CIDR'05}. pp.\  84--94, 2005.
+
+\bibitem[\protect\citeauthoryear{Mackert and Lohman}{Mackert and
+  Lohman}{1989}]{Mackert:1989:ISU:68012.68016}
+{\sc Mackert, L.~F.} {\sc and} {\sc Lohman, G.~M.}
+\newblock Index scans using a finite lru buffer: a validated i/o model.
+\newblock {\em ACM Trans. Database Syst.\/}~14~(3): 401--424, Sept., 1989.
+
+\bibitem[\protect\citeauthoryear{Martin, Li, Zheng, Romanufa, and
+  Powley}{Martin et~al\mbox{.}}{2000}]{springerlink:10.1007/3-540-44469-6_9}
+{\sc Martin, P.}, {\sc Li, H.-Y.}, {\sc Zheng, M.}, {\sc Romanufa, K.}, {\sc
+  and} {\sc Powley, W.}
+\newblock Dynamic reconfiguration algorithm: Dynamically tuning multiple buffer
+  pools.
+\newblock In {\em Database and Expert Systems Applications}, {M.~Ibrahim},
+  {J.~Küng}, {and} {N.~Revell} (Eds.). Lecture Notes in Computer Science, vol.
+  1873. Springer Berlin / Heidelberg, pp.\  92--101, 2000.
+\newblock 10.1007/3-540-44469-6\_9.
+
+\bibitem[\protect\citeauthoryear{Minhas, Yadav, Aboulnaga, and Salem}{Minhas
+  et~al\mbox{.}}{2008}]{4498282}
+{\sc Minhas, U.}, {\sc Yadav, J.}, {\sc Aboulnaga, A.}, {\sc and} {\sc Salem,
+  K.}
+\newblock Database systems on virtual machines: How much do you lose?
+\newblock In {\em Data Engineering Workshop, 2008. ICDEW 2008. IEEE 24th
+  International Conference on}. pp.\  35 --41, 2008.
+
+\bibitem[\protect\citeauthoryear{Soror, Aboulnaga, and Salem}{Soror
+  et~al\mbox{.}}{2007}]{4401021}
+{\sc Soror, A.}, {\sc Aboulnaga, A.}, {\sc and} {\sc Salem, K.}
+\newblock Database virtualization: A new frontier for database tuning and
+  physical design.
+\newblock In {\em Data Engineering Workshop, 2007 IEEE 23rd International
+  Conference on}. pp.\  388 --394, 2007.
+
+\bibitem[\protect\citeauthoryear{Soror, Minhas, Aboulnaga, Salem, Kokosielis,
+  and Kamath}{Soror et~al\mbox{.}}{2008}]{Soror:2008:AVM:1376616.1376711-OLD}
+{\sc Soror, A.~A.}, {\sc Minhas, U.~F.}, {\sc Aboulnaga, A.}, {\sc Salem, K.},
+  {\sc Kokosielis, P.}, {\sc and} {\sc Kamath, S.}
+\newblock Automatic virtual machine configuration for database workloads.
+\newblock In {\em Proceedings of the 2008 ACM SIGMOD international conference
+  on Management of data}. SIGMOD '08. ACM, New York, NY, USA, pp.\  953--966,
+  2008.
+
+\bibitem[\protect\citeauthoryear{Soror, Minhas, Aboulnaga, Salem, Kokosielis,
+  and Kamath}{Soror et~al\mbox{.}}{2010}]{Soror:2008:AVM:1376616.1376711}
+{\sc Soror, A.~A.}, {\sc Minhas, U.~F.}, {\sc Aboulnaga, A.}, {\sc Salem, K.},
+  {\sc Kokosielis, P.}, {\sc and} {\sc Kamath, S.}
+\newblock Automatic virtual machine configuration for database workloads.
+\newblock {\em ACM Trans. Database Syst.\/}~35~(1), 2010.
+
+\bibitem[\protect\citeauthoryear{Storm, Garcia-Arellano, Lightstone, Diao, and
+  Surendra}{Storm et~al\mbox{.}}{2006}]{Storm:2006:ASM:1182635.1164220}
+{\sc Storm, A.~J.}, {\sc Garcia-Arellano, C.}, {\sc Lightstone, S.~S.}, {\sc
+  Diao, Y.}, {\sc and} {\sc Surendra, M.}
+\newblock Adaptive self-tuning memory in db2.
+\newblock In {\em Proceedings of the 32nd international conference on Very
+  large data bases}. VLDB '06. VLDB Endowment, Seoul, Korea, pp.\  1081--1092,
+  2006.
+
+\bibitem[\protect\citeauthoryear{Tong, Jin, Xie, Cao, and Yuan}{Tong
+  et~al\mbox{.}}{2011}]{6127969}
+{\sc Tong, G.}, {\sc Jin, H.}, {\sc Xie, X.}, {\sc Cao, W.}, {\sc and} {\sc
+  Yuan, P.}
+\newblock Measuring and analyzing cpu overhead of virtualization system.
+\newblock In {\em Services Computing Conference (APSCC), 2011 IEEE
+  Asia-Pacific}. pp.\  243 --250, 2011.
+
+\bibitem[\protect\citeauthoryear{Vengurlekar}{Vengurlekar}{2011}]{instance1290}
+{\sc Vengurlekar, N.}
+\newblock {Database Consolidation onto Private Clouds}.
+\newblock Tech. rep., Oracle Corporation. February, 2011.
+
+\end{thebibliography}

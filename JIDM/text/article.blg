@@ -1,0 +1,57 @@
+This is BibTeX, Version 0.99c (Web2C 7.5.6)
+The top-level auxiliary file: article.aux
+The style file: jidm.bst
+Database file #1: jidmb.bib
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Warning--empty publisher in dias:automatic
+Warning--JIDM: address or location *needed* in dias:automatic
+Warning--empty address in springerlink:10.1007/3-540-44469-6_9
+Warning--empty publisher in 4498282
+Warning--JIDM: address or location *needed* in 4498282
+Warning--empty publisher in 4401021
+Warning--JIDM: address or location *needed* in 4401021
+Warning--page numbers missing in Soror:2008:AVM:1376616.1376711
+Warning--empty publisher in 6127969
+Warning--JIDM: address or location *needed* in 6127969
+You've used 10 entries,
+            3079 wiz_defined-function locations,
+            921 strings with 12199 characters,
+and the built_in function-call counts, 9758 in all, are:
+= -- 791
+> -- 832
+< -- 8
++ -- 259
+- -- 267
+* -- 984
+:= -- 1683
+add.period$ -- 52
+call.type$ -- 10
+change.case$ -- 93
+chr.to.int$ -- 10
+cite$ -- 20
+duplicate$ -- 284
+empty$ -- 536
+format.name$ -- 303
+if$ -- 1932
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 15
+newline$ -- 54
+num.names$ -- 102
+pop$ -- 95
+preamble$ -- 1
+purify$ -- 152
+quote$ -- 0
+skip$ -- 272
+stack$ -- 0
+substring$ -- 431
+swap$ -- 115
+text.length$ -- 8
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 200
+warning$ -- 10
+while$ -- 87
+width$ -- 0
+write$ -- 151
+(There were 10 warnings)
