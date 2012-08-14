@@ -12,6 +12,11 @@ Curino, C., Jones, E.~P., Madden, S., and Balakrishnan, H. (2011).
 \newblock In {\em Proceedings of the 2011 international conference on
   Management of data}, SIGMOD '11, pages 313--324, New York, NY, USA. ACM.
 
+\bibitem[Dias et~al., 2005]{dias:automatic}
+Dias, K., Ramacher, M., Shaft, U., Venkataramani, V., and Wood, G. (2005).
+\newblock Automatic performance diagnosis and tuning in oracle.
+\newblock In {\em CIDR'05}, pages 84--94.
+
 \bibitem[Kossmann and Kraska, 2010]{springerlink:10.1007/s13222-010-0033-3}
 Kossmann, D. and Kraska, T. (2010).
 \newblock Data management in the cloud: Promises, state-of-the-art, and open
@@ -23,6 +28,15 @@ Kossmann, D. and Kraska, T. (2010).
 Mackert, L.~F. and Lohman, G.~M. (1989).
 \newblock Index scans using a finite lru buffer: a validated i/o model.
 \newblock {\em ACM Trans. Database Syst.}, 14(3):401--424.
+
+\bibitem[Martin et~al., 2000]{springerlink:10.1007/3-540-44469-6_9}
+Martin, P., Li, H.-Y., Zheng, M., Romanufa, K., and Powley, W. (2000).
+\newblock Dynamic reconfiguration algorithm: Dynamically tuning multiple buffer
+  pools.
+\newblock In Ibrahim, M., Küng, J., and Revell, N., editors, {\em Database and
+  Expert Systems Applications}, volume 1873 of {\em Lecture Notes in Computer
+  Science}, pages 92--101. Springer Berlin / Heidelberg.
+\newblock 10.1007/3-540-44469-6\_9.
 
 \bibitem[Minhas et~al., 2008]{4498282}
 Minhas, U., Yadav, J., Aboulnaga, A., and Salem, K. (2008).
@@ -37,12 +51,18 @@ Soror, A., Aboulnaga, A., and Salem, K. (2007).
 \newblock In {\em Data Engineering Workshop, 2007 IEEE 23rd International
   Conference on}, pages 388 --394.
 
-\bibitem[Soror et~al., 2008]{Soror:2008:AVM:1376616.1376711}
+\bibitem[Soror et~al., 2008]{Soror:2008:AVM:1376616.1376711-OLD}
 Soror, A.~A., Minhas, U.~F., Aboulnaga, A., Salem, K., Kokosielis, P., and
   Kamath, S. (2008).
 \newblock Automatic virtual machine configuration for database workloads.
 \newblock In {\em Proceedings of the 2008 ACM SIGMOD international conference
   on Management of data}, SIGMOD '08, pages 953--966, New York, NY, USA. ACM.
+
+\bibitem[Soror et~al., 2010]{Soror:2008:AVM:1376616.1376711}
+Soror, A.~A., Minhas, U.~F., Aboulnaga, A., Salem, K., Kokosielis, P., and
+  Kamath, S. (2010).
+\newblock Automatic virtual machine configuration for database workloads.
+\newblock {\em ACM Trans. Database Syst.}, 35(1).
 
 \bibitem[Sotomayor et~al., 2009]{5233608}
 Sotomayor, B., Montero, R., Llorente, I., and Foster, I. (2009).
@@ -56,6 +76,19 @@ Soundararajan, G., Lupei, D., Ghanbari, S., Popescu, A.~D., Chen, J., and Amza,
   storage.
 \newblock In {\em Proccedings of the 7th conference on File and storage
   technologies}, FAST '09, pages 71--84, Berkeley, CA, USA. USENIX Association.
+
+\bibitem[Storm et~al., 2006]{Storm:2006:ASM:1182635.1164220}
+Storm, A.~J., Garcia-Arellano, C., Lightstone, S.~S., Diao, Y., and Surendra,
+  M. (2006).
+\newblock Adaptive self-tuning memory in db2.
+\newblock In {\em Proceedings of the 32nd international conference on Very
+  large data bases}, VLDB '06, pages 1081--1092. VLDB Endowment.
+
+\bibitem[Tong et~al., 2011]{6127969}
+Tong, G., Jin, H., Xie, X., Cao, W., and Yuan, P. (2011).
+\newblock Measuring and analyzing cpu overhead of virtualization system.
+\newblock In {\em Services Computing Conference (APSCC), 2011 IEEE
+  Asia-Pacific}, pages 243 --250.
 
 \bibitem[Vengurlekar, 2011]{instance1290}
 Vengurlekar, N. (2011).

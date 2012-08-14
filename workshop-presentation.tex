@@ -23,7 +23,7 @@
 \institute[Department of Informatics \\ Universidade Federal do Paraná]{Advisor: Prof. Dr. Eduardo Cunha de Almeida\\
 \bigskip
 Department of Informatics \\ Universidade Federal do Paraná }      % Enter your institute name between curly braces
-\date{July 12, 2012}     
+\date{August 17, 2012}     
 
 \begin{document}
 
@@ -40,30 +40,12 @@ Department of Informatics \\ Universidade Federal do Paraná }      % Enter your 
 \end{frame}
 
 \section{Introduction}
-
-\begin{frame}
- \frametitle{Infrastructure as a service}
- 
- \begin{itemize}
-  \item Popularized business model;
-  \item On-demand provisioning;
-  \item Offers virtualized resources;
-  \item Private clouds:
-  \begin{itemize}
-    \item Flexible infrastructure;
-    \item Pack services into the same machine;
-    \item Resource reallocation;
-    \item Host migration;
-  \end{itemize}
-
- \end{itemize}
-
-\end{frame}
   
 \subsection{Context}
   \begin{frame}[plain]
     \frametitle{Context}
     \begin{itemize}
+     \item Private clouds;
      \item DBMS Virtualization;
      \item Database consolidation;
      \item Infrastructure cloud deployment model:
@@ -104,21 +86,22 @@ machines, how should we allocate the available resources to these virtual machin
 \subsection{Overview}
   \begin{frame}
      
-    \frametitle{Database virtualization}
+    \frametitle{Related Work}
     \begin{itemize}
-     \item Is it an advantage to virtualize DBMSes?
+     \item \cite{dias:automatic}
+      \begin{itemize}
+	\item CPU among distributes systems;
+     \end{itemize}
+     \item \cite{6127969}
+      \begin{itemize}
+	\item CPU virtualization overhead;
+      \end{itemize}
+
+
+     \item \cite{Soror:2008:AVM:1376616.1376711-OLD} and \cite{Soror:2008:AVM:1376616.1376711}
      \begin{itemize}
-      \item Comparison to non-virtualized database consolidation solution\cite{Curino:2011:WDM:1989323.1989357}
-      \begin{itemize}
-	\item Small amount of RAM reclaimed;
-	\item 6x to 12x higher throughput;
-	\item Different architecture;
-      \end{itemize}
-      \item According to \cite{4498282}
-      \begin{itemize}
-	\item Average overhead $< 10\%$.
-	\item Query execution times not much higher;
-      \end{itemize}
+      \item CPU cost models;
+      \item Virtualization design advisor;
 
      \end{itemize}
 
@@ -127,28 +110,7 @@ machines, how should we allocate the available resources to these virtual machin
 
   \end{frame}
   
-  \begin{frame}
-    \frametitle{Resource allocation}
-    \begin{itemize}
-      
-      \item \cite{Soundararajan:2009:DRA:1525908.1525914}
-      \begin{itemize}
-	\item Database server running on a virtual storage;
-	\item Minimal statistics collection;
-	\item Interplay between resources;
-      \end{itemize}
-      \item \cite{Soror:2008:AVM:1376616.1376711}
-      \begin{itemize}
-	\item Certain level of independence among resources;
-	\item Based on query optimizer cost model;
-	\item VM and DBMS parameters.
-      \end{itemize}
-      
-      
-    \end{itemize}
-    
-
-  \end{frame}
+ 
 
 
 \subsection{Virtualization Design Advisor}
@@ -273,23 +235,62 @@ machines, how should we allocate the available resources to these virtual machin
 
   
       
-\section{Preliminary Results}
+\section{Results}
   \begin{frame}
-    \frametitle{Preliminary Results}
+    \frametitle{Calibration}
     \begin{columns}
-    \begin{column}{0.5\textwidth}
+    \begin{column}{0.3\textwidth}
       \centering
-      \includegraphics[width = 6 cm]{cost_res.png}
+      \includegraphics[width = 4 cm]{cpu-operator-cost.png}
     \end{column}
-    \begin{column}{0.5\textwidth}
+    \begin{column}{0.3\textwidth}
       \centering
-      \includegraphics[width = 6 cm]{resultados.png}
+      \includegraphics[width = 4 cm]{cpu-tuple-cost.png}
+    \end{column}
+    \begin{column}{0.3\textwidth}
+      \centering
+      \includegraphics[width = 4 cm]{cpu-index-tuple-cost.png}
     \end{column}
   \end{columns}
-  
-    $\approx 8\%$ improvement for 2 workload units
 
+  \end{frame}
 
+\subsection{Advisor}
+
+  \begin{frame}
+    \frametitle{Configuration Search}
+    \begin{columns}
+    \begin{column}{0.6\textwidth}
+      \centering
+          \[
+      \frac{T_{default}-T_{advisor}}{T_{default}}
+      \]
+      \begin{eqnarray*}
+	W_{1} &=& 5*C + 5*I \\
+	W_{2} &=& k*C + (10-k)*I, \\
+	  &&0 \leq k \leq 10 \\
+      \end{eqnarray*}
+    \end{column}
+    \begin{column}{0.6\textwidth}
+      \centering
+      \includegraphics[width=0.8\textwidth]{improvement.png}
+    \end{column}
+      \end{columns}
+
+  \end{frame}
+
+\begin{frame}
+    \frametitle{Online Refinement and Dynamic Configuration Search}
+    \begin{columns}
+    \begin{column}{0.6\textwidth}
+      \centering
+	\includegraphics[width=0.8\textwidth]{online-ref.png}
+    \end{column}
+    \begin{column}{0.6\textwidth}
+      \centering
+  \includegraphics[width=0.8\textwidth]{dyn-change.png}
+    \end{column}
+      \end{columns}
 
   \end{frame}
 
@@ -297,14 +298,14 @@ machines, how should we allocate the available resources to these virtual machin
   \begin{frame}
       \frametitle{Final Considerations}
       \begin{itemize}
-       \item Test components;
-       \item Workload variation;
-       \item Result comparison;
+       \item Resource consolidation on the cloud;
+       \item Improvement over default allocation;
        \item Future work
        \begin{itemize}
 	  \item Different DBMS types;
 	  \item New resources;
-	  \item Workload Intensity;
+	  \item Explore the infrastructure;
+	  \item Overhead;
        \end{itemize}
 
       \end{itemize}

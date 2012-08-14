@@ -3,45 +3,45 @@ The top-level auxiliary file: workshop-presentation.aux
 The style file: apalike.bst
 Database file #1: tg.bib
 Warning--empty institution in Armbrust09abovethe
-You've used 10 entries,
+You've used 15 entries,
             1935 wiz_defined-function locations,
-            542 strings with 6106 characters,
-and the built_in function-call counts, 5067 in all, are:
-= -- 504
-> -- 239
-< -- 8
-+ -- 84
-- -- 84
-* -- 417
-:= -- 842
-add.period$ -- 34
-call.type$ -- 10
-change.case$ -- 94
-chr.to.int$ -- 10
-cite$ -- 11
-duplicate$ -- 199
-empty$ -- 333
-format.name$ -- 98
-if$ -- 1039
+            576 strings with 7327 characters,
+and the built_in function-call counts, 8022 in all, are:
+= -- 788
+> -- 395
+< -- 13
++ -- 139
+- -- 139
+* -- 663
+:= -- 1316
+add.period$ -- 52
+call.type$ -- 15
+change.case$ -- 145
+chr.to.int$ -- 15
+cite$ -- 16
+duplicate$ -- 321
+empty$ -- 526
+format.name$ -- 158
+if$ -- 1661
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 8
-newline$ -- 54
-num.names$ -- 30
-pop$ -- 89
+missing$ -- 13
+newline$ -- 80
+num.names$ -- 47
+pop$ -- 148
 preamble$ -- 1
-purify$ -- 92
+purify$ -- 143
 quote$ -- 0
-skip$ -- 158
+skip$ -- 254
 stack$ -- 0
-substring$ -- 330
-swap$ -- 53
-text.length$ -- 5
+substring$ -- 506
+swap$ -- 96
+text.length$ -- 10
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 60
+type$ -- 90
 warning$ -- 1
-while$ -- 37
+while$ -- 57
 width$ -- 0
-write$ -- 142
+write$ -- 213
 (There was 1 warning)

@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2012.6.29)  10 JUL 2012 17:51
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2012.8.14)  14 AUG 2012 12:12
 entering extended mode
  %&-line parsing enabled.
 **workshop-presentation.tex
@@ -712,32 +712,26 @@ Overfull \hbox (24.72008pt too wide) has occurred while \output is active
 [2
 
 ]
-LaTeX Font Info:    Try loading font information for U+msa on input line 61.
+LaTeX Font Info:    Try loading font information for U+msa on input line 62.
  (/usr/share/texmf/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2002/01/19 v2.2g AMS font definitions
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 61.
+LaTeX Font Info:    Try loading font information for U+msb on input line 62.
 
 (/usr/share/texmf/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2002/01/19 v2.2g AMS font definitions
 )
-Overfull \hbox (24.72008pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[3
-
-] <./images/infra-model.png, id=205, 290.08376pt x 216.81pt>
+<./images/infra-model.png, id=173, 290.08376pt x 216.81pt>
 File: ./images/infra-model.png Graphic file (type png)
 
-<use ./images/infra-model.png> [4
+<use ./images/infra-model.png> [3
 
  <./images/infra-model.png (PNG copy)>]
-<./images/dbms_consolidation.png, id=231, 896.34875pt x 687.56876pt>
+<./images/dbms_consolidation.png, id=200, 896.34875pt x 687.56876pt>
 File: ./images/dbms_consolidation.png Graphic file (type png)
 
 <use ./images/dbms_consolidation.png>
-Overfull \vbox (41.90184pt too high) detected at line 101
+Overfull \vbox (41.90184pt too high) detected at line 83
  []
 
 
@@ -745,30 +739,23 @@ Overfull \hbox (24.72008pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[5
+[4
 
  <./images/dbms_consolidation.png (PNG copy)>]
 Overfull \hbox (24.72008pt too wide) has occurred while \output is active
  [][][][]  
  []
 
+[5
+
+]
+Overfull \hbox (24.72008pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
 [6
 
-]
-Overfull \hbox (24.72008pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[7
-
-]
-Overfull \hbox (24.72008pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[8
-
-] <./images/cost-estimator.png, id=398, 484.81125pt x 229.85875pt>
+] <./images/cost-estimator.png, id=329, 484.81125pt x 229.85875pt>
 File: ./images/cost-estimator.png Graphic file (type png)
 
 <use ./images/cost-estimator.png>
@@ -776,32 +763,32 @@ Overfull \hbox (24.72008pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[9
+[7
 
  <./images/cost-estimator.png (PNG copy)>]
-<./images/architecture.png, id=435, 1347.0325pt x 589.20125pt>
+<./images/architecture.png, id=367, 1347.0325pt x 589.20125pt>
 File: ./images/architecture.png Graphic file (type png)
 
 <use ./images/architecture.png>pdfTeX warning (ext4): destination with the same
  identifier (name{fig:architecture}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.189   \end{frame}
+l.151   \end{frame}
                    
 Overfull \hbox (24.72008pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[10
+[8
 
  <./images/architecture.png (PNG copy)>]
-<./images/one-architecture_2.png, id=471, 401.8212pt x 201.6333pt>
+<./images/one-architecture_2.png, id=403, 401.8212pt x 201.6333pt>
 File: ./images/one-architecture_2.png Graphic file (type png)
 
-<use ./images/one-architecture_2.png> [11
+<use ./images/one-architecture_2.png> [9
 
  <./images/one-architecture_2.png>]
-<./images/database_helper_facade.png, id=498, 832.61063pt x 215.30438pt>
+<./images/database_helper_facade.png, id=430, 832.61063pt x 215.30438pt>
 File: ./images/database_helper_facade.png Graphic file (type png)
 
 <use ./images/database_helper_facade.png>
@@ -809,20 +796,69 @@ Overfull \hbox (24.72008pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[12
+[10
 
  <./images/database_helper_facade.png (PNG copy)>]
 Overfull \hbox (24.72008pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[13
+[11
 
-] <./images/advisor-arch.png, id=574, 772.8875pt x 410.53375pt>
+] <./images/advisor-arch.png, id=505, 772.8875pt x 410.53375pt>
 File: ./images/advisor-arch.png Graphic file (type png)
 
 <use ./images/advisor-arch.png>
-Overfull \vbox (1.68343pt too high) detected at line 271
+Overfull \vbox (1.68343pt too high) detected at line 233
+ []
+
+
+Overfull \hbox (24.72008pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[12
+
+ <./images/advisor-arch.png (PNG copy)>]
+<./images/cpu-operator-cost.png, id=541, 642.4pt x 481.8pt>
+File: ./images/cpu-operator-cost.png Graphic file (type png)
+
+<use ./images/cpu-operator-cost.png>
+Overfull \hbox (21.62312pt too wide) in paragraph at lines 256--256
+ [][] 
+ []
+
+<./images/cpu-tuple-cost.png, id=542, 642.4pt x 481.8pt>
+File: ./images/cpu-tuple-cost.png Graphic file (type png)
+
+<use ./images/cpu-tuple-cost.png>
+Overfull \hbox (21.62312pt too wide) in paragraph at lines 256--256
+ [][] 
+ []
+
+<./images/cpu-index-tuple-cost.png, id=543, 642.4pt x 481.8pt>
+File: ./images/cpu-index-tuple-cost.png Graphic file (type png)
+
+<use ./images/cpu-index-tuple-cost.png>
+Overfull \hbox (21.62312pt too wide) in paragraph at lines 256--256
+ [][] 
+ []
+
+
+Overfull \hbox (24.72008pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[13
+
+ <./images/cpu-operator-cost.png (PNG copy)> <./images/cpu-tuple-cost.png (PNG 
+copy)> <./images/cpu-index-tuple-cost.png (PNG copy)>]
+<./images/improvement.png, id=583, 642.4pt x 481.8pt>
+File: ./images/improvement.png Graphic file (type png)
+
+<use ./images/improvement.png>
+Overfull \hbox (4.55623pt too wide) detected at line 280
+[][][] $[]$[][][][][][][][] $[]$[][][][][][] 
  []
 
 
@@ -832,20 +868,17 @@ Overfull \hbox (24.72008pt too wide) has occurred while \output is active
 
 [14
 
- <./images/advisor-arch.png (PNG copy)>]
-<./images/cost_res.png, id=610, 642.4pt x 481.8pt>
-File: ./images/cost_res.png Graphic file (type png)
- <use ./images/cost_res.png>
-Overfull \hbox (17.0716pt too wide) in paragraph at lines 294--294
- [][] 
- []
+ <./images/improvement.png (PNG copy)>]
+<./images/online-ref.png, id=619, 642.4pt x 481.8pt>
+File: ./images/online-ref.png Graphic file (type png)
 
-<./images/resultados.png, id=611, 1027.84pt x 770.88pt>
-File: ./images/resultados.png Graphic file (type png)
+<use ./images/online-ref.png>
+<./images/dyn-change.png, id=620, 642.4pt x 481.8pt>
+File: ./images/dyn-change.png Graphic file (type png)
 
-<use ./images/resultados.png>
-Overfull \hbox (17.0716pt too wide) in paragraph at lines 294--294
- [][] 
+<use ./images/dyn-change.png>
+Overfull \hbox (4.55623pt too wide) detected at line 295
+[][][] $[]$[][][][][][][][] $[]$[][][][][][] 
  []
 
 
@@ -855,7 +888,7 @@ Overfull \hbox (24.72008pt too wide) has occurred while \output is active
 
 [15
 
- <./images/cost_res.png (PNG copy)> <./images/resultados.png (PNG copy)>]
+ <./images/online-ref.png (PNG copy)> <./images/dyn-change.png (PNG copy)>]
 Overfull \hbox (24.72008pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -888,12 +921,28 @@ Overfull \hbox (24.72008pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[19])
+[19]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 Overfull \hbox (24.72008pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [20]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (24.72008pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[21])
+Overfull \hbox (24.72008pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[22]
 \tf@nav=\write5
 \openout5 = `workshop-presentation.nav'.
 
@@ -913,35 +962,33 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 8732 strings out of 256216
- 156362 string characters out of 1917072
- 235787 words of memory out of 1500000
- 11651 multiletter control sequences out of 10000+200000
- 27758 words of font info for 69 fonts, out of 1200000 for 2000
+ 8733 strings out of 256216
+ 156506 string characters out of 1917072
+ 235791 words of memory out of 1500000
+ 11646 multiletter control sequences out of 10000+200000
+ 24604 words of font info for 61 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
- 41i,20n,55p,329b,736s stack positions out of 5000i,500n,6000p,200000b,15000s
+ 41i,20n,51p,329b,752s stack positions out of 5000i,500n,6000p,200000b,15000s
  </home/antonio/.texlive2007/texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1095.6
 00pk> </home/antonio/.texlive2007/texmf-var/fonts/pk/ljfour/jknappen/ec/ecsi080
 0.600pk> </home/antonio/.texlive2007/texmf-var/fonts/pk/ljfour/jknappen/ec/ecsi
 1000.600pk> </home/antonio/.texlive2007/texmf-var/fonts/pk/ljfour/jknappen/ec/e
 css0700.600pk> </home/antonio/.texlive2007/texmf-var/fonts/pk/ljfour/jknappen/e
 c/ecsi0700.600pk> </home/antonio/.texlive2007/texmf-var/fonts/pk/ljfour/jknappe
-n/ec/ecss0900.600pk> </home/antonio/.texlive2007/texmf-var/fonts/pk/ljfour/jkna
+n/ec/ecss1000.600pk> </home/antonio/.texlive2007/texmf-var/fonts/pk/ljfour/jkna
 ppen/ec/ecsi1095.600pk> </home/antonio/.texlive2007/texmf-var/fonts/pk/ljfour/j
 knappen/ec/ecss1200.600pk> </home/antonio/.texlive2007/texmf-var/fonts/pk/ljfou
-r/jknappen/ec/ecss1000.600pk> </home/antonio/.texlive2007/texmf-var/fonts/pk/lj
-four/jknappen/ec/ecss0800.600pk> </home/antonio/.texlive2007/texmf-var/fonts/pk
-/ljfour/jknappen/ec/ecss1095.600pk> </home/antonio/.texlive2007/texmf-var/fonts
-/pk/ljfour/jknappen/ec/ecss1440.600pk> </home/antonio/.texlive2007/texmf-var/fo
-nts/pk/ljfour/jknappen/ec/ecsx0600.600pk></usr/share/texmf/fonts/type1/bluesky/
-cm/cmex10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi10.pfb></usr/share/t
-exmf/fonts/type1/bluesky/cm/cmmi9.pfb></usr/share/texmf/fonts/type1/bluesky/cm/
-cmss10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmss8.pfb></usr/share/texmf
-/fonts/type1/bluesky/cm/cmss9.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy
-10.pfb></usr/share/texmf/fonts/type1/bluesky/ams/msam7.pfb>
-Output written on workshop-presentation.pdf (20 pages, 766242 bytes).
+r/jknappen/ec/ecss0800.600pk> </home/antonio/.texlive2007/texmf-var/fonts/pk/lj
+four/jknappen/ec/ecss1095.600pk> </home/antonio/.texlive2007/texmf-var/fonts/pk
+/ljfour/jknappen/ec/ecss1440.600pk> </home/antonio/.texlive2007/texmf-var/fonts
+/pk/ljfour/jknappen/ec/ecsx0600.600pk></usr/share/texmf/fonts/type1/bluesky/cm/
+cmex10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi10.pfb></usr/share/texm
+f/fonts/type1/bluesky/cm/cmss10.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cm
+ss8.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy10.pfb></usr/share/texmf/f
+onts/type1/bluesky/ams/msam7.pfb>
+Output written on workshop-presentation.pdf (22 pages, 798726 bytes).
 PDF statistics:
- 1273 PDF objects out of 1440 (max. 8388607)
- 68 named destinations out of 1000 (max. 131072)
- 186 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1323 PDF objects out of 1440 (max. 8388607)
+ 78 named destinations out of 1000 (max. 131072)
+ 214 words of extra memory for PDF output out of 10000 (max. 10000000)
 
